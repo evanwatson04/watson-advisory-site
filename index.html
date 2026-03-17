@@ -4,33 +4,671 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Watson Advisory Services</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta
+    name="description"
+    content="Tax preparation, tax planning, bookkeeping, cleanup, financial modeling, pro formas, data analytics, and consulting services."
+  />
+  <style>
+    :root {
+      --red: #ff3131;
+      --red-dark: #d62828;
+      --black: #202020;
+      --white: #ffffff;
+      --light: #f7f7f7;
+      --border: #e5e5e5;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 18px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max-width), 92%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--black);
+      color: var(--white);
+      font-size: 0.95rem;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      flex-wrap: wrap;
+    }
+
+    .topbar a:hover {
+      color: #ffd7d7;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .site-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: var(--white);
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-text span {
+      display: block;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--red-dark);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--red);
+      color: var(--white);
+      padding: 0.95rem 1.35rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 2px solid var(--red);
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--red-dark);
+      border-color: var(--red-dark);
+      transform: translateY(-1px);
+    }
+
+    .button.secondary {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    .button.secondary:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .hero {
+      padding: 4.5rem 0 4rem;
+      background: linear-gradient(180deg, #fff5f5 0%, #ffffff 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--red-dark);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 5vw, 4.6rem);
+      line-height: 1.08;
+      margin: 0 0 1rem;
+      max-width: 12ch;
+    }
+
+    .hero h1 .accent {
+      color: var(--red);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 60ch;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-note {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .headshot-wrap {
+      border-radius: 22px;
+      overflow: hidden;
+      background: #111;
+      margin-bottom: 1rem;
+    }
+
+    .headshot-wrap img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .intro-card {
+      border-radius: 18px;
+      background: var(--light);
+      padding: 1rem;
+    }
+
+    .intro-card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.15rem;
+    }
+
+    .section {
+      padding: 4.5rem 0;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      margin: 0 0 0.75rem;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: #555;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .service-card {
+      display: block;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: 0.2s ease;
+      min-height: 240px;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: #ffc7c7;
+    }
+
+    .service-card .tag {
+      display: inline-block;
+      padding: 0.35rem 0.7rem;
+      background: #fff1f1;
+      color: var(--red-dark);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+
+    .service-card h3 {
+      margin: 0 0 0.7rem;
+      font-size: 1.35rem;
+    }
+
+    .service-card p {
+      margin: 0 0 1rem;
+      color: #555;
+    }
+
+    .service-card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: #444;
+    }
+
+    .service-card li + li {
+      margin-top: 0.35rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .about-panel,
+    .contact-panel,
+    .review-card,
+    .cta-panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .about-panel.logo-panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100%;
+      background: #f8f8f8;
+    }
+
+    .about-panel.logo-panel img {
+      max-width: 320px;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .list-clean {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+
+    .list-clean li {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .review-card p {
+      margin-top: 0;
+      color: #444;
+    }
+
+    .review-card strong {
+      color: var(--red-dark);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .contact-panel h3,
+    .cta-panel h3 {
+      margin-top: 0;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      margin-right: 1rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      color: var(--red-dark);
+    }
+
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+
+    .small-note {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .site-footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+
+    .site-footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .reviews-grid,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .site-header .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .hero h1 {
+        max-width: 100%;
+      }
+
+      .topbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="topbar">
+    <div class="container">
+      <div>Email: <a href="mailto:evanwatson04@gmail.com">evanwatson04@gmail.com</a></div>
+      <div>Call or text: <a href="tel:12057064910">(205) 706-4910</a></div>
+    </div>
+  </div>
 
-<header>
-  <h1>Watson Advisory Services</h1>
-</header>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="Watson Advisory Services logo" />
+        <div class="brand-text">
+          <strong>Watson Advisory Services</strong>
+          <span>Tax, bookkeeping, analytics, and advisory</span>
+        </div>
+      </a>
 
-<section class="hero">
-  <h2>Tax, Bookkeeping, and Advisory Services</h2>
-  <p>Helping individuals and businesses with tax prep, planning, bookkeeping, and financial modeling.</p>
-</section>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a class="button" href="mailto:evanwatson04@gmail.com">Get Started</a>
+      </nav>
+    </div>
+  </header>
 
-<section>
-  <h2>Services</h2>
-  <ul>
-    <li>Tax Preparation & Planning</li>
-    <li>Bookkeeping & Cleanup</li>
-    <li>Financial Modeling & Consulting</li>
-  </ul>
-</section>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Watson Advisory Services</span>
+          <h1>
+            Practical <span class="accent">tax</span> and financial support for individuals and growing businesses.
+          </h1>
+          <p>
+            Offering tax preparation and planning, data analytics and consulting, financial modeling and pro formas, and bookkeeping cleanup for clients who want clear answers and organized support.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="mailto:evanwatson04@gmail.com">Email to Get Started</a>
+            <a class="button secondary" href="tel:12057064910">Call or Text</a>
+          </div>
+          <div class="hero-note">
+            Serving individuals, self-employed taxpayers, small businesses, partnerships, S corps, and nonprofits.
+          </div>
+        </div>
 
-<section>
-  <h2>Contact</h2>
-  <p>Email: your@email.com</p>
-</section>
+        <div class="hero-card">
+          <div class="headshot-wrap">
+            <img src="headshot.jpg" alt="Professional headshot" />
+          </div>
+          <div class="intro-card">
+            <h3>Direct, responsive service</h3>
+            <p>
+              Start with a quick conversation about your return, books, model, or reporting needs, then move into a clean and organized workflow.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Services</h2>
+          <p>
+            Each service card below links to its own page. Those pages can include deeper descriptions, examples, testimonials, FAQs, pricing, and a contact form later.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <a class="service-card" href="tax-services.html">
+            <span class="tag">Tax</span>
+            <h3>Tax Preparation &amp; Planning</h3>
+            <p>Support for returns, tax questions, forward-looking planning, and year-round guidance.</p>
+            <ul>
+              <li>Individual and business returns</li>
+              <li>Self-employed and small business support</li>
+              <li>Planning conversations and tax-saving ideas</li>
+            </ul>
+          </a>
+
+          <a class="service-card" href="analytics-consulting.html">
+            <span class="tag">Analytics</span>
+            <h3>Data Analytics &amp; Consulting</h3>
+            <p>Clear reporting and business insight for owners who need better visibility into performance.</p>
+            <ul>
+              <li>Dashboards and KPI review</li>
+              <li>Trend analysis and reporting</li>
+              <li>Decision support for operations and finance</li>
+            </ul>
+          </a>
+
+          <a class="service-card" href="financial-modeling.html">
+            <span class="tag">Modeling</span>
+            <h3>Financial Modeling &amp; Pro Formas</h3>
+            <p>Structured models to forecast revenue, expenses, cash flow, and future business scenarios.</p>
+            <ul>
+              <li>Pro forma financial statements</li>
+              <li>Scenario and sensitivity analysis</li>
+              <li>Startup and growth planning support</li>
+            </ul>
+          </a>
+
+          <a class="service-card" href="bookkeeping.html">
+            <span class="tag">Books</span>
+            <h3>Bookkeeping &amp; Cleanup</h3>
+            <p>Help getting books current, organized, and usable for tax filing and business decisions.</p>
+            <ul>
+              <li>Catch-up and cleanup projects</li>
+              <li>Monthly bookkeeping support</li>
+              <li>Account classification and reconciliations</li>
+            </ul>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" style="background: #fafafa;">
+      <div class="container about-grid">
+        <div class="about-panel logo-panel">
+          <img src="logo.png" alt="Watson Advisory Services logo" />
+        </div>
+
+        <div class="about-panel">
+          <div class="section-header" style="margin-bottom: 1rem;">
+            <h2>About Watson Advisory Services</h2>
+            <p>
+              Watson Advisory Services is built around practical support for people and businesses that want organized financial help without unnecessary complexity.
+            </p>
+          </div>
+          <p>
+            The goal is simple: provide responsive service, clear communication, and useful deliverables whether the need is tax work, books cleanup, reporting, or forward-looking financial analysis.
+          </p>
+          <ul class="list-clean">
+            <li><strong>Tax-focused support:</strong> preparation, planning, and guidance</li>
+            <li><strong>Business insight:</strong> analytics, reporting, and consulting</li>
+            <li><strong>Financial clarity:</strong> models, forecasts, and pro formas</li>
+            <li><strong>Clean books:</strong> bookkeeping support and cleanup projects</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-header">
+          <h2>Reviews &amp; Results</h2>
+          <p>
+            These are starter placeholders for now. Later, replace these with real client reviews, case studies, or project summaries.
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="review-card">
+            <p>“Very responsive and easy to work with. The process felt organized from the beginning.”</p>
+            <strong>Placeholder review</strong>
+          </div>
+          <div class="review-card">
+            <p>“Helped clean up confusing financial information and explained everything in a way that made sense.”</p>
+            <strong>Placeholder review</strong>
+          </div>
+          <div class="review-card">
+            <p>“Clear communication, quick turnaround, and practical guidance for the next steps.”</p>
+            <strong>Placeholder review</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" style="background: #fff5f5;">
+      <div class="container contact-grid">
+        <div class="contact-panel">
+          <h3>Contact</h3>
+          <p>Reach out by email or phone to get started.</p>
+          <div class="contact-links">
+            <a href="mailto:evanwatson04@gmail.com">evanwatson04@gmail.com</a>
+            <a href="tel:12057064910">(205) 706-4910</a>
+          </div>
+          <p class="small-note">
+            For now, this site uses your direct contact information. Later, you can add a contact form, scheduling link, and secure client portal.
+          </p>
+        </div>
+
+        <div class="cta-panel">
+          <h3>Next step</h3>
+          <p>
+            Once this homepage is working, the next build step is to create the four service detail pages:
+          </p>
+          <ul>
+            <li><code>tax-services.html</code></li>
+            <li><code>analytics-consulting.html</code></li>
+            <li><code>financial-modeling.html</code></li>
+            <li><code>bookkeeping.html</code></li>
+          </ul>
+          <p class="small-note">
+            Those pages should match this design and can include service descriptions, examples, FAQs, reviews, and calls to action.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© 2026 Watson Advisory Services</div>
+      <div>Tax • Advisory • Analytics • Bookkeeping</div>
+    </div>
+  </footer>
 </body>
 </html>
