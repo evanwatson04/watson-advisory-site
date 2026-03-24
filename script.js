@@ -1,154 +1,145 @@
-function qs(sel, root = document) { return root.querySelector(sel); }
-function qsa(sel, root = document) { return Array.from(root.querySelectorAll(sel)); }
-
-function escapeHtml(str) {
-  return String(str).replace(/[&<>"']/g, (c) => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"
-  }[c]));
-}
-
-function stars(n) {
-  const x = Math.max(1, Math.min(5, Number(n) || 0));
-  return "★★★★★".slice(0, x) + "☆☆☆☆☆".slice(0, 5 - x);
-}
-
-/* Quote form: submits via fetch to FormSubmit AJAX endpoint */
-async function initQuoteForms() {
-  const forms = qsa('form[data-form="quote"]');
-  for (const form of forms) {
-    const status = qs(".form-status", form) || null;
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      if (status) status.textContent = "Sending…";
-
-      // Basic anti-spam: honeypot
-      const honey = form.querySelector('input[name="_honey"]');
-      if (honey && honey.value) {
-        if (status) status.textContent = "Sent.";
-        return;
-      }
-
-      const endpoint = form.getAttribute("data-endpoint");
-      if (!endpoint) {
-        if (status) status.textContent = "Form endpoint not configured.";
-        return;
-      }
-
-      const fd = new FormData(form);
-
-      try {
-        const res = await fetch(endpoint, {
-          method: "POST",
-          headers: { "Accept": "application/json" },
-          body: fd
-        });
-
-        if (!res.ok) throw new Error("Bad response");
-
-        form.reset();
-        if (status) status.textContent = "Sent. Evan will reach out soon.";
-      } catch {
-        if (status) status.textContent = "Couldn’t send right now. Please call/text (205) 706-4910.";
-      }
-    });
+(function () {
+  // Update scroll progress bar
+  const progress = document.getElementById("scroll-progress");
+  function updateProgress() {
+    if (!progress) return;
+    const h = document.documentElement;
+    const scrolled = h.scrollTop || document.body.scrollTop;
+    const height = (h.scrollHeight || document.body.scrollHeight) - h.clientHeight;
+    const pct = height > 0 ? (scrolled / height) * 100 : 0;
+    progress.style.width = pct.toFixed(2) + "%";
   }
-}
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  updateProgress();
 
-/* Reviews: loads from /api/reviews and renders */
-async function loadReviews() {
-  const blocks = qsa("[data-reviews]");
-  for (const block of blocks) {
-    const service = block.getAttribute("data-service") || "all";
-    const url = service === "all"
-      ? "/api/reviews"
-      : `/api/reviews?service=${encodeURIComponent(service)}`;
+  // Quote form: prefill + set FormSubmit _next and subject
+  const quoteForm = document.getElementById("quoteForm");
+  if (quoteForm) {
+    const params = new URLSearchParams(window.location.search);
+    const service = (params.get("service") || "").trim();
+    const pkg = (params.get("package") || "").trim();
+    const starting = (params.get("starting") || "").trim();
+
+    const serviceSelect = document.getElementById("serviceSelect");
+    const packageInput = document.getElementById("packageInput");
+    const messageInput = document.getElementById("messageInput");
+    const subjectInput = document.getElementById("subjectInput");
+    const nextInput = document.getElementById("nextInput");
+
+    // Set redirect AFTER submit to our branded thank-you page
+    if (nextInput) {
+      nextInput.value = `${window.location.origin}/thanks.html`;
+    }
+
+    // Prefill service/package from pricing clicks
+    if (service && serviceSelect) {
+      const opt = Array.from(serviceSelect.options).find(o => o.value === service);
+      if (opt) serviceSelect.value = service;
+    }
+    if (pkg && packageInput) packageInput.value = pkg;
+
+    // Prefill message when package chosen
+    if (pkg && messageInput) {
+      const line = starting ? `Package: ${pkg} (starting at $${starting})` : `Package: ${pkg}`;
+      messageInput.value = `${line}\n\nWhat I need help with:\n`;
+      messageInput.focus();
+      messageInput.setSelectionRange(messageInput.value.length, messageInput.value.length);
+    }
+
+    // Show “request received” banner if using ?sent=1 (optional)
+    const quoteSentNotice = document.getElementById("quoteSentNotice");
+    if (quoteSentNotice && params.get("sent") === "1") {
+      quoteSentNotice.hidden = false;
+    }
+
+    // Build strong subject line at submit time
+    quoteForm.addEventListener("submit", () => {
+      if (!subjectInput) return;
+
+      const serviceLabel = serviceSelect
+        ? (serviceSelect.options[serviceSelect.selectedIndex]?.text || "Service")
+        : "Service";
+
+      const pkgVal = (packageInput?.value || "").trim();
+      subjectInput.value = pkgVal
+        ? `Quote request: ${serviceLabel} — ${pkgVal}`
+        : `Quote request: ${serviceLabel}`;
+    }, { passive: true });
+  }
+
+  // Google reviews (hidden unless configured)
+  async function loadFeaturedGoogleReviews() {
+    const section = document.querySelector("[data-google-reviews]");
+    if (!section) return;
 
     try {
-      const res = await fetch(url, { headers: { "Accept": "application/json" } });
-      if (!res.ok) throw new Error("Bad response");
-      const data = await res.json();
+      const res = await fetch("/api/reviews/featured", { headers: { "Accept": "application/json" } });
+      if (!res.ok) return;
 
+      const data = await res.json().catch(() => null);
+      if (!data || data.ok !== true) return;
+
+      // Must have at least rating/count or a link to show section
+      const hasNumbers = (typeof data.rating === "number") || (typeof data.userRatingsTotal === "number");
+      const hasLinks = !!data.googleProfileUrl || !!data.googleReviewUrl;
       const reviews = Array.isArray(data.reviews) ? data.reviews : [];
-      if (!reviews.length) {
-        block.innerHTML = `<p class="muted">No reviews yet. Be the first to leave one.</p>`;
-        continue;
+
+      if (!hasNumbers && !hasLinks && reviews.length === 0) return;
+
+      section.hidden = false;
+
+      const line = document.getElementById("googleRatingLine");
+      if (line && hasNumbers) {
+        const r = (data.rating != null) ? data.rating.toFixed(1) : "";
+        const c = (data.userRatingsTotal != null) ? data.userRatingsTotal : "";
+        line.textContent = (r && c) ? `Rated ${r} on Google (${c} reviews)` : "";
       }
 
-      block.innerHTML = reviews.map((r) => {
-        const name = escapeHtml(r.name || "Client");
-        const msg = escapeHtml(r.message || "");
-        const rating = Number(r.rating || 5);
-        const svc = escapeHtml(r.service || "");
-        const when = escapeHtml(r.created_at || "");
-        return `
-          <article class="review">
+      const profileBtn = document.querySelector("[data-google-profile]");
+      if (profileBtn && data.googleProfileUrl) {
+        profileBtn.href = data.googleProfileUrl;
+        profileBtn.hidden = false;
+      }
+
+      const reviewBtn = document.querySelector("[data-google-review]");
+      if (reviewBtn && data.googleReviewUrl) {
+        reviewBtn.href = data.googleReviewUrl;
+        reviewBtn.hidden = false;
+      }
+
+      const grid = document.getElementById("featuredReviews");
+      if (grid) {
+        grid.innerHTML = "";
+        for (const r of reviews.slice(0, 3)) {
+          const author = r.author_name || "Client";
+          const stars = "★★★★★".slice(0, r.rating || 5) + "☆☆☆☆☆".slice(0, 5 - (r.rating || 5));
+          const when = r.relative_time_description || "";
+          const text = r.text || "";
+
+          const card = document.createElement("div");
+          card.className = "review-card";
+          card.innerHTML = `
             <div class="review-top">
-              <div>
-                <span class="review-name">${name}</span>
-                <span class="review-meta"> • ${svc}</span>
-              </div>
-              <div class="review-stars" aria-label="${rating} out of 5 stars">${stars(rating)}</div>
+              <div class="review-author">${escapeHtml(author)}</div>
+              <div class="review-stars" aria-label="${r.rating} out of 5 stars">${stars}</div>
             </div>
-            <div class="review-meta">${when}</div>
-            <p class="review-msg">${msg}</p>
-          </article>
-        `;
-      }).join("");
+            <div class="review-meta">${escapeHtml(when)}</div>
+            <div class="review-text">${escapeHtml(text)}</div>
+          `;
+          grid.appendChild(card);
+        }
+      }
 
     } catch {
-      // Fail gracefully: hide the section if API isn't configured yet.
-      block.innerHTML = `<p class="muted">Reviews are not available right now.</p>`;
+      // fail silently; keep section hidden
     }
   }
-}
 
-/* Review submission: POST to /api/reviews */
-async function initReviewForms() {
-  const forms = qsa('form[data-form="review"]');
-  for (const form of forms) {
-    const status = qs(".form-status", form) || null;
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      if (status) status.textContent = "Submitting…";
-
-      // Honeypot
-      const hp = form.querySelector('input[name="company"]');
-      if (hp && hp.value) {
-        if (status) status.textContent = "Submitted.";
-        return;
-      }
-
-      const payload = {
-        name: (form.name?.value || "").trim(),
-        service: form.service?.value || "",
-        rating: Number(form.rating?.value || 5),
-        message: (form.message?.value || "").trim(),
-        turnstileToken: (form.querySelector('textarea[name="cf-turnstile-response"]')?.value || "").trim()
-      };
-
-      try {
-        const res = await fetch("/api/reviews", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "Accept":"application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        const out = await res.json().catch(() => ({}));
-        if (!res.ok || out.ok !== true) throw new Error("Submit failed");
-
-        form.reset();
-        if (status) status.textContent = "Thanks—your review is now live.";
-        await loadReviews();
-      } catch (err) {
-        if (status) status.textContent = "Couldn’t submit right now. Please try again later.";
-      }
-    });
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, (c) => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"
+    }[c]));
   }
-}
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await initQuoteForms();
-  await initReviewForms();
-  await loadReviews();
-});
+  loadFeaturedGoogleReviews();
+})();

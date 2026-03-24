@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Request a Quote | Watson Advisory Services</title>
+  <meta name="description" content="Request a quote for bookkeeping, analytics, financial modeling, or tax planning. Tax return prep starts in the client portal." />
+
+  <link rel="icon" href="logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Watson Advisory Services home">
+        <span class="logo-box" aria-hidden="true">
+          <img src="logo.png" alt="" />
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Watson Advisory Services</span>
+          <span class="brand-sub">Tax • Bookkeeping • Analytics • Modeling</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="tax-services.html">Tax</a>
+        <a href="bookkeeping.html">Bookkeeping</a>
+        <a href="analytics-consulting.html">Analytics</a>
+        <a href="financial-modeling.html">Modeling</a>
+        <a class="btn btn-primary" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Request a quote</h1>
+        <p class="lead">
+          Submit the form below and you’ll receive a response by email or text. For full tax preparation, start in the client portal.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Start Tax Prep in Portal</a>
+          <a class="btn btn-ghost" href="index.html#contact">Other contact options</a>
+        </div>
+
+        <div class="notice" id="quoteSentNotice" hidden>
+          Request received. If you don’t hear back shortly, call/text (205) 706-4910.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <form class="form form-card" id="quoteForm"
+              action="https://formsubmit.co/evanwatson04@gmail.com"
+              method="POST">
+          <div class="form-row">
+            <label>
+              Name
+              <input name="name" required maxlength="60" autocomplete="name" />
+            </label>
+            <label>
+              Email
+              <input name="email" type="email" required maxlength="80" autocomplete="email" />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Phone (optional)
+              <input name="phone" maxlength="20" autocomplete="tel" />
+            </label>
+            <label>
+              Service
+              <select name="service" id="serviceSelect" required>
+                <option value="tax">Tax Preparation & Planning</option>
+                <option value="bookkeeping">Bookkeeping & Cleanup</option>
+                <option value="analytics">Data Analytics & Consulting</option>
+                <option value="modeling">Financial Modeling & Pro Formas</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Package (optional)
+            <input name="package" id="packageInput" maxlength="120" placeholder="Example: KPI Dashboard Pack" />
+          </label>
+
+          <label>
+            What do you need help with?
+            <textarea name="message" id="messageInput" rows="7" required maxlength="1400"
+                      placeholder="Briefly describe what you’re working on, what you want the deliverable to be, and any deadlines."></textarea>
+          </label>
+
+          <!-- FormSubmit configuration -->
+          <input type="hidden" name="_subject" id="subjectInput" value="New quote request - Watson Advisory Services" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_honey" value="" />
+          <input type="hidden" name="_next" id="nextInput" value="" />
+
+          <button class="btn btn-primary btn-lg" type="submit">Send request</button>
+
+          <p class="fineprint">
+            For tax return preparation, the client portal is the fastest onboarding path for document upload and communication.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">Watson Advisory Services</div>
+        <div class="footer-muted">Email: evanwatson04@gmail.com • Phone: (205) 706-4910</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tax-services.html">Tax</a>
+        <a href="bookkeeping.html">Bookkeeping</a>
+        <a href="analytics-consulting.html">Analytics</a>
+        <a href="financial-modeling.html">Modeling</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-bar" aria-label="Quick actions">
+    <a href="tel:+12057064910">Call</a>
+    <a href="index.html">Home</a>
+    <a href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Portal</a>
+  </div>
+</body>
+</html>

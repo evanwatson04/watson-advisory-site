@@ -1,107 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Data Analytics & Consulting | Watson Advisory Services</title>
-  <meta name="description" content="Excel-first data analytics and consulting to improve reporting, efficiency, profitability, and operational decision-making." />
-  <style>
-    :root { --red:#ff3131; --red-dark:#d62828; --black:#202020; --white:#ffffff; --light:#fafafa; --soft-red:#fff3f3; --border:#e8e8e8; --shadow:0 12px 28px rgba(0,0,0,0.06); --radius:18px; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--black); background:var(--white); line-height:1.6; }
-    a { color:inherit; text-decoration:none; }
-    .container { width:min(1100px,92%); margin:0 auto; }
-    .site-header { border-bottom:1px solid var(--border); background:rgba(255,255,255,0.96); position:sticky; top:0; z-index:20; }
-    .site-header .container { padding:0.9rem 0; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
-    .brand { font-weight:700; }
-    nav { display:flex; gap:1rem; flex-wrap:wrap; }
-    .button { display:inline-flex; align-items:center; justify-content:center; background:var(--red); color:var(--white); padding:0.9rem 1.2rem; border-radius:999px; border:2px solid var(--red); font-weight:700; }
-    .button.secondary { background:var(--white); color:var(--black); border-color:var(--black); }
-    .hero { background:linear-gradient(180deg, #fff5f5 0%, #ffffff 100%); padding:2.4rem 0 2.8rem; }
-    .hero h1 { font-size:clamp(2rem,4vw,3.8rem); margin:0 0 0.8rem; }
-    .hero p { max-width:62ch; color:#444; }
-    .tag { display:inline-block; padding:0.35rem 0.7rem; border-radius:999px; background:var(--soft-red); color:var(--red-dark); font-size:0.85rem; font-weight:700; margin-bottom:0.9rem; }
-    .section { padding:3.5rem 0; }
-    .grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
-    .pricing { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
-    .card,.price-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius); padding:1.4rem; box-shadow:var(--shadow); }
-    .price { font-size:2rem; font-weight:800; color:var(--red-dark); margin:0.35rem 0; }
-    .price span { font-size:0.9rem; color:#666; font-weight:600; }
-    .footer { background:var(--black); color:var(--white); padding:1.8rem 0; margin-top:2rem; }
-    @media (max-width:900px){ .grid,.pricing { grid-template-columns:1fr; } }
-  </style>
+  <meta name="description" content="Excel-first analytics and consulting—dashboards, reporting cleanup, automation, and operational insight with flat-rate starting packages." />
+  <link rel="icon" href="logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
+
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="scroll-progress" aria-hidden="true"></div>
+
   <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html">Watson Advisory Services</a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#examples">Examples</a>
-        <a class="button" href="index.html#contact">Request a Quote</a>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="logo-box" aria-hidden="true"><img src="logo.png" alt="" /></span>
+        <span class="brand-text">
+          <span class="brand-name">Watson Advisory Services</span>
+          <span class="brand-sub">Tax • Bookkeeping • Analytics • Modeling</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="tax-services.html">Tax</a>
+        <a href="bookkeeping.html">Bookkeeping</a>
+        <a class="active" href="analytics-consulting.html">Analytics</a>
+        <a href="financial-modeling.html">Modeling</a>
+        <a class="btn btn-ghost" href="quote.html?service=analytics">Request a Quote</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <span class="tag">Excel Analytics</span>
-      <h1>Data Analytics &amp; Consulting</h1>
-      <p>
-        This service is built around Excel-first solutions that help businesses improve reporting, efficiency, profitability, and day-to-day decision-making. The focus is on making data usable, understandable, and actionable.
-      </p>
-      <p>
-        <a class="button" href="index.html#contact">Request a Quote</a>
-        <a class="button secondary" href="index.html">Back to Home</a>
-      </p>
-    </div>
-  </section>
-
-  <section class="section" id="pricing">
-    <div class="container">
-      <h2>Pricing</h2>
-      <div class="pricing">
-        <div class="price-card">
-          <h3>Reporting Cleanup Pack</h3>
-          <div class="price">$250 <span>starting at</span></div>
-          <p>Clean up exported data, fix structure, and produce cleaner summary reporting.</p>
-        </div>
-        <div class="price-card">
-          <h3>Excel Dashboard Pack</h3>
-          <div class="price">$400 <span>starting at</span></div>
-          <p>Excel dashboard or recurring reporting package built around key business metrics.</p>
-        </div>
-        <div class="price-card">
-          <h3>Decision Analysis Pack</h3>
-          <div class="price">$600 <span>starting at</span></div>
-          <p>A deeper scoped analysis project with recommendations tied to operations or financial performance.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="examples" style="background:#fafafa;">
-    <div class="container grid">
-      <div class="card">
-        <h2>What this can include</h2>
-        <ul>
-          <li>Excel dashboards and KPI reporting</li>
-          <li>Reporting cleanup and restructuring</li>
-          <li>Data analysis tied to sales, trends, and efficiency</li>
-          <li>Spreadsheet automation and formula-based workflow improvements</li>
-          <li>Decision support for management and operations</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>Example work</h2>
-        <p>
-          Example work includes large-scale church and nonprofit data analysis, Excel-based reporting and segmentation work, sales and sampling analysis for consumer-facing businesses, consulting tied to business profitability and operations, and analytics support on financial matters where modeling and interpretation were needed.
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Data analytics &amp; consulting</h1>
+        <p class="lead">
+          Excel-first work that improves reporting, reveals profitability drivers, and makes decisions easier.
         </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="footer"><div class="container">Watson Advisory Services • Data Analytics &amp; Consulting</div></div>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Packages (starting)</h2>
+        <p class="muted">Click a package to open a prefilled quote request.</p>
+
+        <div class="pricing-grid">
+          <a class="price-card" href="quote.html?service=analytics&package=Reporting%20Cleanup%20Pack&starting=250">
+            <h3>Reporting Cleanup Pack</h3>
+            <div class="price">$250 <span class="small">starting</span></div>
+            <p class="muted">Fix structure, normalize messy exports, and create clean summary tables.</p>
+            <span class="mini-cta">Request quote →</span>
+          </a>
+
+          <a class="price-card" href="quote.html?service=analytics&package=KPI%20Dashboard%20Pack&starting=400">
+            <h3>KPI Dashboard Pack</h3>
+            <div class="price">$400 <span class="small">starting</span></div>
+            <p class="muted">Refreshable Excel dashboard with KPIs and repeatable reporting flow.</p>
+            <span class="mini-cta">Request quote →</span>
+          </a>
+
+          <a class="price-card" href="quote.html?service=analytics&package=Decision%20Analysis%20Pack&starting=600">
+            <h3>Decision Analysis Pack</h3>
+            <div class="price">$600 <span class="small">starting</span></div>
+            <p class="muted">Deeper analysis with findings + recommendations (sales, margin, ops).</p>
+            <span class="mini-cta">Request quote →</span>
+          </a>
+        </div>
+
+        <div class="two-col top-gap">
+          <div>
+            <h2 class="section-title">What I deliver</h2>
+            <ul class="checklist">
+              <li>Excel dashboards and KPI packs</li>
+              <li>Data cleanup and reconciliation</li>
+              <li>Sales/margin analysis and reporting improvements</li>
+              <li>Automation templates (repeatable monthly reporting)</li>
+            </ul>
+          </div>
+          <div class="callout">
+            <h3 class="h4">Best fit</h3>
+            <p class="muted">
+              Teams that already export data, but need structure—consistent KPIs, clean reporting, and actionable insight.
+            </p>
+          </div>
+        </div>
+
+        <h2 class="section-title">Selected past work (anonymized)</h2>
+        <div class="work-grid">
+          <div class="work-card">
+            <p><strong>Sales &amp; sampling reporting:</strong> Built Excel-based analysis on sales and sampling datasets to identify what drove outcomes and where to focus effort.</p>
+          </div>
+          <div class="work-card">
+            <p><strong>Nonprofit / faith-based reporting dataset:</strong> Structured large datasets into usable dashboards and recurring reporting views.</p>
+          </div>
+          <div class="work-card">
+            <p><strong>School operations reporting:</strong> Converted recurring data into metrics and reporting that improved clarity for decision-makers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">Watson Advisory Services</div>
+        <div class="footer-muted">Email: evanwatson04@gmail.com • Phone: (205) 706-4910</div>
+      </div>
+      <div class="footer-links">
+        <a href="quote.html?service=analytics">Quote</a>
+        <a href="index.html">Home</a>
+        <a href="tax-services.html">Tax</a>
+        <a href="bookkeeping.html">Bookkeeping</a>
+        <a href="financial-modeling.html">Modeling</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-bar" aria-label="Quick actions">
+    <a href="tel:+12057064910">Call</a>
+    <a href="quote.html?service=analytics">Quote</a>
+    <a href="index.html">Home</a>
+  </div>
 </body>
 </html>
