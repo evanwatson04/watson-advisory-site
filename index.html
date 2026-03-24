@@ -1,263 +1,536 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-  <title>Watson Advisory Services | Tax Prep, Bookkeeping, Analytics, Modeling</title>
-  <meta name="description" content="Remote-first tax preparation, bookkeeping, Excel analytics, and financial modeling—delivered directly by Evan Watson. Client portal onboarding for tax services and fast quote requests for advisory work." />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watson Advisory Services | Tax Prep, Bookkeeping, Excel Analytics</title>
+  <meta name="description" content="Tax preparation, bookkeeping, Excel-based analytics, and financial modeling delivered directly by Evan Watson through Watson Advisory Services." />
+  <meta name="keywords" content="tax preparation, tax planning, bookkeeping, bookkeeping cleanup, Excel consulting, data analytics, financial modeling, pro formas, small business consulting" />
   <meta property="og:title" content="Watson Advisory Services" />
-  <meta property="og:description" content="Remote-first tax prep, bookkeeping, Excel analytics, and financial modeling—direct service, professional portal onboarding." />
+  <meta property="og:description" content="Tax preparation, bookkeeping, Excel-based analytics, and financial modeling delivered directly by Evan Watson." />
   <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --red: #ff3131;
+      --red-dark: #d62828;
+      --black: #202020;
+      --white: #ffffff;
+      --light: #fafafa;
+      --soft-red: #fff3f3;
+      --border: #e8e8e8;
+      --shadow: 0 14px 34px rgba(0,0,0,0.08);
+      --radius: 20px;
+      --max-width: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max-width), 92%); margin: 0 auto; }
 
-  <link rel="icon" href="logo.png" />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .site-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      min-width: 0;
+    }
+    .brand-logo {
+      width: 62px;
+      height: 62px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .brand-logo img {
+      width: 105px;
+      height: auto;
+      transform: scale(1.22);
+      object-fit: cover;
+    }
+    .brand-text strong {
+      display: block;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+    }
+    .brand-text span {
+      display: block;
+      color: #666;
+      font-size: 0.92rem;
+    }
+    nav {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    nav a { font-weight: 700; }
+    nav a:hover { color: var(--red-dark); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--red);
+      color: var(--white);
+      padding: 0.95rem 1.35rem;
+      border-radius: 999px;
+      border: 2px solid var(--red);
+      font-weight: 700;
+      transition: 0.2s ease;
+      cursor: pointer;
+      font: inherit;
+    }
+    .button:hover {
+      background: var(--red-dark);
+      border-color: var(--red-dark);
+      transform: translateY(-1px);
+    }
+    .button.secondary {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--black);
+    }
+    .button.secondary:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .hero {
+      padding: 2rem 0 2.5rem;
+      background: linear-gradient(180deg, #fff5f5 0%, #ffffff 100%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .eyebrow {
+      display: inline-block;
+      color: var(--red-dark);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.15rem, 5vw, 4.15rem);
+      line-height: 1.05;
+      margin: 0 0 1rem;
+      max-width: 12ch;
+    }
+    .hero h1 .accent { color: var(--red); }
+    .hero p {
+      font-size: 1.08rem;
+      color: #444;
+      max-width: 62ch;
+      margin: 0 0 1rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.25rem 0 1rem;
+    }
+    .hero-note {
+      color: #555;
+      font-size: 0.98rem;
+      max-width: 58ch;
+    }
+    .portal-steps {
+      margin-top: 1.2rem;
+      padding: 1rem 1.1rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    .portal-steps h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.05rem;
+    }
+    .portal-steps ol {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: #444;
+    }
+    .portal-steps li + li { margin-top: 0.35rem; }
+
+    .hero-card,
+    .panel,
+    .review-panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+    .headshot-wrap {
+      overflow: hidden;
+      border-radius: 22px;
+      background: #111;
+      margin-bottom: 1rem;
+    }
+    .headshot-wrap img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 15%;
+    }
+    .about-evan {
+      background: var(--light);
+      border-radius: 18px;
+      padding: 1.1rem;
+    }
+    .about-evan h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.18rem;
+    }
+
+    .section { padding: 3.5rem 0; }
+    .section-header {
+      max-width: 780px;
+      margin-bottom: 2rem;
+    }
+    .section-header h2 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.9rem, 3vw, 3rem);
+    }
+    .section-header p { margin: 0; color: #555; }
+
+    .services-about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.3rem;
+      margin-top: 1.25rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .service-card {
+      display: block;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.3rem;
+      box-shadow: var(--shadow);
+      min-height: 215px;
+      transition: 0.2s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: #ffc6c6;
+    }
+    .tag {
+      display: inline-block;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: var(--soft-red);
+      color: var(--red-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+    .service-card h3 {
+      margin: 0 0 0.7rem;
+      font-size: 1.2rem;
+    }
+    .service-card p {
+      margin: 0 0 0.8rem;
+      color: #555;
+    }
+    .service-card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: #444;
+    }
+
+    .logo-showcase {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100%;
+      background: #f8f8f8;
+      overflow: hidden;
+    }
+    .logo-showcase img {
+      width: 100%;
+      max-width: 340px;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.18);
+    }
+
+    .review-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .contact-links a {
+      display: inline-block;
+      margin-right: 1rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+      color: var(--red-dark);
+    }
+    .contact-links a:hover { text-decoration: underline; }
+
+    .small-note {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .site-footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+    .site-footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .services-about-grid,
+      .services-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .site-header .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+    @media (max-width: 640px) {
+      .button { width: 100%; }
+      .hero h1 { max-width: 100%; }
+    }
+  </style>
 </head>
-
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <div id="scroll-progress" aria-hidden="true"></div>
-
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Watson Advisory Services home">
-        <span class="logo-box" aria-hidden="true">
-          <img src="logo.png" alt="" />
-        </span>
-        <span class="brand-text">
-          <span class="brand-name">Watson Advisory Services</span>
-          <span class="brand-sub">Tax • Bookkeeping • Analytics • Modeling</span>
-        </span>
+    <div class="container">
+      <a class="brand" href="index.html">
+        <span class="brand-logo"><img src="logo.png" alt="Watson Advisory Services logo" /></span>
+        <div class="brand-text">
+          <strong>Watson Advisory Services</strong>
+          <span>Tax, bookkeeping, analytics, and advisory</span>
+        </div>
       </a>
 
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="tax-services.html">Tax</a>
-        <a href="bookkeeping.html">Bookkeeping</a>
-        <a href="analytics-consulting.html">Analytics</a>
-        <a href="financial-modeling.html">Modeling</a>
-        <a class="btn btn-ghost" href="quote.html">Request a Quote</a>
-        <a class="btn btn-primary" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal</a>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#portal">Portal</a>
+        <a href="#contact">Contact</a>
+        <a class="button" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener noreferrer">Start Tax Prep</a>
       </nav>
     </div>
   </header>
 
-  <main id="main">
+  <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1>Remote tax prep, bookkeeping &amp; Excel analytics—done right.</h1>
-          <p class="lead">
-            Direct service, fast communication, and practical work that improves reporting, efficiency, and profitability.
-          </p>
-
-          <div class="cta-row">
-            <a class="btn btn-primary btn-lg" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">
-              Start Tax Prep in the Portal
-            </a>
-            <a class="btn btn-ghost btn-lg" href="quote.html">Request a Quote</a>
-          </div>
-
-          <div class="trust-row" aria-label="Quick trust points">
-            <div class="trust-pill">Flat-rate starting prices</div>
-            <div class="trust-pill">Portal-first onboarding</div>
-            <div class="trust-pill">Remote-friendly nationwide</div>
-          </div>
-
-          <div class="how-it-works">
-            <h2 class="section-title">How it works</h2>
-            <ol class="steps">
-              <li><strong>Create your account</strong> in the client portal or request a quote.</li>
-              <li><strong>Upload documents</strong> through the portal for tax services (secure client workflow).</li>
-              <li><strong>I follow up shortly</strong> with next steps, questions, and timeline.</li>
-            </ol>
-          </div>
-        </div>
-
-        <aside class="hero-card" aria-label="About Evan">
-          <div class="headshot-frame">
-            <img src="headshot.jpg" alt="Evan Watson" />
-          </div>
-
-          <h2 class="h3">About Evan</h2>
-          <p class="muted">
-            Sole proprietor providing tax preparation, bookkeeping cleanup, Excel-based analytics, and financial modeling.
-          </p>
-          <p class="muted">
-            From Pell City, Alabama, and currently working primarily in the Jackson metro area while attending Millsaps.
-            Primary service areas are central Alabama and central Mississippi—clients from anywhere are welcome.
-          </p>
-
-          <div class="contact-block">
-            <a class="contact-link" href="tel:+12057064910">(205) 706-4910</a>
-            <a class="contact-link" href="mailto:evanwatson04@gmail.com">evanwatson04@gmail.com</a>
-          </div>
-
-          <div class="micro-links">
-            <a href="https://www.facebook.com/share/181qwibuGE/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-            <span aria-hidden="true">•</span>
-            <a href="https://www.linkedin.com/in/evan-watson-93175932b" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">Services</h2>
-
-        <div class="cards">
-          <a class="card" href="tax-services.html">
-            <h3>Tax Preparation &amp; Planning</h3>
-            <p>Individual, complex, and entity returns—with portal onboarding and clean communication.</p>
-            <span class="card-link">View tax services →</span>
-          </a>
-
-          <a class="card" href="bookkeeping.html">
-            <h3>Bookkeeping &amp; Cleanup</h3>
-            <p>Monthly bookkeeping or catch-up cleanup to restore accurate financials.</p>
-            <span class="card-link">View bookkeeping →</span>
-          </a>
-
-          <a class="card" href="analytics-consulting.html">
-            <h3>Data Analytics &amp; Consulting</h3>
-            <p>Excel-first reporting, automation, KPIs, and operational insight.</p>
-            <span class="card-link">View analytics →</span>
-          </a>
-
-          <a class="card" href="financial-modeling.html">
-            <h3>Financial Modeling &amp; Pro Formas</h3>
-            <p>Budgeting, forecasting, scenarios, and pitch-ready pro formas.</p>
-            <span class="card-link">View modeling →</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-tinted">
-      <div class="container">
-        <h2 class="section-title">Popular entry points</h2>
-        <p class="muted">Click a package to start in the right place.</p>
-
-        <div class="pricing-grid">
-          <a class="price-card price-card--portal" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">
-            <h3>Basic Individual Return</h3>
-            <div class="price">$100 <span class="small">starting</span></div>
-            <p class="muted">Start in the portal to create your account and upload documents.</p>
-            <span class="mini-cta">Go to portal →</span>
-          </a>
-
-          <a class="price-card" href="quote.html?service=bookkeeping&package=Cleanup%20%2F%20Catch-up&starting=300">
-            <h3>Cleanup / Catch-up Bookkeeping</h3>
-            <div class="price">$300 <span class="small">starting / month behind</span></div>
-            <p class="muted">Get back to clean books with reconciliations and corrected categories.</p>
-            <span class="mini-cta">Request quote →</span>
-          </a>
-
-          <a class="price-card" href="quote.html?service=analytics&package=KPI%20Dashboard%20Pack&starting=400">
-            <h3>KPI Dashboard Pack</h3>
-            <div class="price">$400 <span class="small">starting</span></div>
-            <p class="muted">Excel dashboard with refreshable reporting structure.</p>
-            <span class="mini-cta">Request quote →</span>
-          </a>
-
-          <a class="price-card" href="quote.html?service=modeling&package=Pro%20Forma%20Pack&starting=350">
-            <h3>Pro Forma Pack</h3>
-            <div class="price">$350 <span class="small">starting</span></div>
-            <p class="muted">Clean pro forma outputs and assumptions table.</p>
-            <span class="mini-cta">Request quote →</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="portal">
-      <div class="container">
-        <h2 class="section-title">Client portal onboarding</h2>
-        <div class="two-col">
-          <div>
-            <p>
-              Tax clients onboard through a professional tax software portal (MyTAXPortal / MyTAXPrepOffice) with secure document exchange,
-              messaging, and signature workflows.
-            </p>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Open Client Portal</a>
-              <a class="btn btn-ghost" href="tax-services.html">Learn more about tax services</a>
-            </div>
-          </div>
-          <div class="callout">
-            <h3 class="h4">What to do</h3>
-            <ol class="steps steps-compact">
-              <li>Create your portal account.</li>
-              <li>Complete the intake/organizer.</li>
-              <li>Upload documents in the portal.</li>
-              <li>I follow up shortly with next steps.</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="reviews" hidden data-google-reviews>
-      <div class="container">
-        <div class="reviews-header">
-          <div>
-            <h2 class="section-title">Google reviews</h2>
-            <p class="muted" id="googleRatingLine"></p>
-          </div>
-          <div class="reviews-actions">
-            <a class="btn btn-ghost" data-google-profile hidden target="_blank" rel="noopener">Read reviews</a>
-            <a class="btn btn-primary" data-google-review hidden target="_blank" rel="noopener">Leave a review</a>
-          </div>
-        </div>
-
-        <div class="reviews-grid" id="featuredReviews"></div>
-      </div>
-    </section>
-
-    <section class="section section-tinted" id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-grid">
-          <div class="contact-card">
-            <h3 class="h4">Call / Text</h3>
-            <a class="contact-link" href="tel:+12057064910">(205) 706-4910</a>
-          </div>
-          <div class="contact-card">
-            <h3 class="h4">Email</h3>
-            <a class="contact-link" href="mailto:evanwatson04@gmail.com">evanwatson04@gmail.com</a>
-          </div>
-          <div class="contact-card">
-            <h3 class="h4">Request a quote</h3>
-            <a class="btn btn-primary" href="quote.html">Open quote form</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="site-footer">
-      <div class="container footer-inner">
         <div>
-          <div class="footer-brand">Watson Advisory Services</div>
-          <div class="footer-muted">Sole proprietorship • Remote-friendly • Central AL &amp; Central MS focus</div>
+          <span class="eyebrow">Watson Advisory Services</span>
+          <h1>Convenient, <span class="accent">high-quality</span> financial services for individuals and businesses.</h1>
+          <p>
+            Work directly with Evan Watson for tax preparation and planning, bookkeeping and cleanup, Excel-based analytics, financial modeling, and pro formas built to improve reporting, efficiency, profitability, and decision-making.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener noreferrer">Create Portal Account</a>
+            <a class="button secondary" href="#services">Explore Services</a>
+          </div>
+          <div class="hero-note">
+            Tax clients can create an account in the secure client portal powered by professional tax software through MyTAXPrepOffice, complete the intake, and upload documents to get started.
+          </div>
+
+          <div class="portal-steps" id="portal">
+            <h3>How to get started with tax prep</h3>
+            <ol>
+              <li>Create your account in the client portal.</li>
+              <li>Complete the organizer or intake questions.</li>
+              <li>Upload documents through the portal.</li>
+              <li>Evan follows up shortly with next steps.</li>
+            </ol>
+          </div>
         </div>
-        <div class="footer-links">
-          <a href="quote.html">Quote</a>
-          <a href="tax-services.html">Tax</a>
-          <a href="bookkeeping.html">Bookkeeping</a>
-          <a href="analytics-consulting.html">Analytics</a>
-          <a href="financial-modeling.html">Modeling</a>
+
+        <div class="hero-card">
+          <div class="headshot-wrap">
+            <img src="headshot.jpg" alt="Evan Watson headshot" />
+          </div>
+          <div class="about-evan">
+            <h3>About Evan</h3>
+            <p>
+              Evan Watson is an accounting student at Millsaps College with experience in tax preparation, audit work, bookkeeping cleanup, Excel-based analytics, financial modeling, and small business consulting.
+            </p>
+            <p>
+              He is from Pell City, Alabama and works primarily in the Jackson metro. Primary service areas are central Alabama and central Mississippi, with clients from anywhere welcome.
+            </p>
+            <p>
+              His background includes analytics and reporting projects, bookkeeping and cleanup work for small businesses, forecast and pro forma development, and tax support for individuals and business entities.
+            </p>
+            <p>
+              <a class="button secondary" href="https://www.linkedin.com/in/evan-watson-93175932b" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+            </p>
+          </div>
         </div>
       </div>
-    </footer>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Services</h2>
+          <p>Choose a service below to view pricing, past work, and next steps.</p>
+        </div>
+
+        <div class="services-about-grid">
+          <div class="services-grid">
+            <a class="service-card" href="tax-services.html">
+              <span class="tag">Tax</span>
+              <h3>Tax Preparation &amp; Planning</h3>
+              <p>Tax returns, planning, and practical support for individuals and business owners.</p>
+              <ul>
+                <li>Basic and complex individual returns</li>
+                <li>Business and entity returns</li>
+                <li>Tax planning and strategy</li>
+              </ul>
+            </a>
+            <a class="service-card" href="analytics-consulting.html">
+              <span class="tag">Excel</span>
+              <h3>Data Analytics &amp; Consulting</h3>
+              <p>Excel-based reporting and analysis to improve visibility and decision-making.</p>
+              <ul>
+                <li>Excel reporting and cleanup</li>
+                <li>Trend analysis and dashboards</li>
+                <li>Operational and profitability insight</li>
+              </ul>
+            </a>
+            <a class="service-card" href="financial-modeling.html">
+              <span class="tag">Modeling</span>
+              <h3>Financial Modeling &amp; Pro Formas</h3>
+              <p>Forecasts and planning models to support pricing, growth, and opportunities.</p>
+              <ul>
+                <li>Revenue and expense projections</li>
+                <li>Scenario analysis</li>
+                <li>Pro forma support</li>
+              </ul>
+            </a>
+            <a class="service-card" href="bookkeeping.html">
+              <span class="tag">Books</span>
+              <h3>Bookkeeping &amp; Cleanup</h3>
+              <p>Cleanup, catch-up, and ongoing support to keep books accurate and usable.</p>
+              <ul>
+                <li>Cleanup and catch-up bookkeeping</li>
+                <li>Monthly support</li>
+                <li>Reconciliations and tax readiness</li>
+              </ul>
+            </a>
+          </div>
+
+          <div class="panel logo-showcase">
+            <img src="logo.png" alt="Watson Advisory Services logo" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews" style="background:#fafafa;">
+      <div class="container">
+        <div class="section-header">
+          <h2>Reviews</h2>
+          <p>See what clients are saying and leave a review after your project is complete.</p>
+        </div>
+        <div class="review-panel">
+          <div class="review-buttons">
+            <a class="button secondary" href="#" target="_blank" rel="noopener noreferrer">View Google Reviews</a>
+            <a class="button" href="#" target="_blank" rel="noopener noreferrer">Leave a Google Review</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" style="background:#fff5f5;">
+      <div class="container contact-grid">
+        <div class="panel">
+          <h3>Contact Evan</h3>
+          <p>Reach out directly by email or phone, connect through Facebook, or use the portal to get started on tax work.</p>
+          <div class="contact-links">
+            <a href="mailto:evanwatson04@gmail.com">evanwatson04@gmail.com</a>
+            <a href="tel:12057064910">(205) 706-4910</a>
+            <a href="https://www.facebook.com/share/181qwibuGE/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook Page</a>
+            <a href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener noreferrer">Client Portal</a>
+          </div>
+          <p class="small-note">Use the portal for document upload and secure tax workflow management.</p>
+        </div>
+
+        <div class="panel">
+          <h3>Request a Quote</h3>
+          <p>
+            For bookkeeping, analytics, financial modeling, and other advisory work, use the quote form below.
+          </p>
+          <div class="hero-actions" style="margin-top: 1rem;">
+            <a class="button" href="quote.html">Open Quote Form</a>
+            <a class="button secondary" href="tax-services.html">View Tax Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <div class="mobile-bar" aria-label="Quick actions">
-    <a href="tel:+12057064910">Call</a>
-    <a href="quote.html">Quote</a>
-    <a href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Portal</a>
-  </div>
+  <footer class="site-footer">
+    <div class="container">
+      <div>© 2026 Watson Advisory Services</div>
+      <div>Tax • Bookkeeping • Excel Analytics • Financial Modeling</div>
+    </div>
+  </footer>
 </body>
 </html>
