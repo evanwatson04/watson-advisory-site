@@ -1,107 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tax Preparation & Planning | Watson Advisory Services</title>
-  <meta name="description" content="Flat-rate tax preparation and tax planning for individuals, self-employed, and entities. Portal-first onboarding. Pell City/Birmingham area + Jackson metro ties. Remote-friendly." />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
+  <meta name="description" content="Flat-rate starting tax preparation and planning for individuals, complex returns, and business/entity returns through Watson Advisory Services." />
+  <style>
+    :root { --red:#ff3131; --red-dark:#d62828; --black:#202020; --white:#ffffff; --light:#fafafa; --soft-red:#fff3f3; --border:#e8e8e8; --shadow:0 12px 28px rgba(0,0,0,0.06); --radius:18px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--black); background:var(--white); line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1100px,92%); margin:0 auto; }
+    .site-header { border-bottom:1px solid var(--border); background:rgba(255,255,255,0.96); position:sticky; top:0; z-index:20; }
+    .site-header .container { padding:0.9rem 0; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
+    .brand { font-weight:700; }
+    nav { display:flex; gap:1rem; flex-wrap:wrap; }
+    .button { display:inline-flex; align-items:center; justify-content:center; background:var(--red); color:var(--white); padding:0.9rem 1.2rem; border-radius:999px; border:2px solid var(--red); font-weight:700; }
+    .button.secondary { background:var(--white); color:var(--black); border-color:var(--black); }
+    .hero { background:linear-gradient(180deg, #fff5f5 0%, #ffffff 100%); padding:2.4rem 0 2.8rem; }
+    .hero h1 { font-size:clamp(2rem,4vw,3.8rem); margin:0 0 0.8rem; }
+    .hero p { max-width:62ch; color:#444; }
+    .tag { display:inline-block; padding:0.35rem 0.7rem; border-radius:999px; background:var(--soft-red); color:var(--red-dark); font-size:0.85rem; font-weight:700; margin-bottom:0.9rem; }
+    .section { padding:3.5rem 0; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+    .pricing { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    .card,.price-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius); padding:1.4rem; box-shadow:var(--shadow); }
+    .price { font-size:2rem; font-weight:800; color:var(--red-dark); margin:0.35rem 0; }
+    .price span { font-size:0.9rem; color:#666; font-weight:600; }
+    .footer { background:var(--black); color:var(--white); padding:1.8rem 0; margin-top:2rem; }
+    @media (max-width:900px){ .grid,.pricing { grid-template-columns:1fr; } }
+  </style>
 </head>
-
 <body>
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Home">
-        <span class="logo-crop" aria-hidden="true"><img src="logo.jpg" alt="" /></span>
-        <span class="brand-text">
-          <span class="brand-name">Watson Advisory Services</span>
-          <span class="brand-tag">Tax • Bookkeeping • Excel Analytics</span>
-        </span>
-      </a>
-
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="active" href="tax-services.html">Tax</a>
-        <a href="bookkeeping.html">Bookkeeping</a>
-        <a href="analytics-consulting.html">Analytics</a>
-        <a href="financial-modeling.html">Modeling</a>
-        <a class="btn btn-primary" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Start Tax Prep (Portal)</a>
+    <div class="container">
+      <a class="brand" href="index.html">Watson Advisory Services</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#examples">Examples</a>
+        <a class="button" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener noreferrer">Start Tax Prep</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1>Tax Preparation & Planning</h1>
-        <p class="lead">Fast, clear, and accurate filing—with portal-first onboarding and secure workflows.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Start in the Client Portal</a>
-          <a class="btn btn-ghost" href="index.html#quote">Request a quote</a>
+  <section class="hero">
+    <div class="container">
+      <span class="tag">Tax Services</span>
+      <h1>Tax Preparation &amp; Planning</h1>
+      <p>
+        Convenient, high-quality tax preparation and planning for individuals, business owners, and entities. The fastest way to get started is to create your portal account, complete the intake, and upload documents through the secure tax software portal.
+      </p>
+      <p>
+        <a class="button" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener noreferrer">Create Portal Account</a>
+        <a class="button secondary" href="index.html#contact">Request a Quote</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="container">
+      <h2>Pricing</h2>
+      <div class="pricing">
+        <div class="price-card">
+          <h3>Basic Individual Return</h3>
+          <div class="price">$100 <span>starting at</span></div>
+          <p>Simple individual returns with common wage, retirement, and basic credit reporting.</p>
+        </div>
+        <div class="price-card">
+          <h3>Complex Individual Return</h3>
+          <div class="price">$200 <span>starting at</span></div>
+          <p>Returns involving real estate, investments, Schedule C, multiple income streams, or other added complexity.</p>
+        </div>
+        <div class="price-card">
+          <h3>Business / Entity Returns</h3>
+          <div class="price">$300 <span>starting at</span></div>
+          <p>Partnerships, S corps, nonprofits, and related entity-level tax work.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="container">
-        <h2>What I help with</h2>
-        <div class="two-col">
-          <div>
-            <ul class="checklist">
-              <li>Individual returns (W‑2/1099, credits/deductions)</li>
-              <li>Self‑employed returns (Schedule C)</li>
-              <li>Investments, real estate, and other higher-complexity items</li>
-              <li>Entity returns (Partnership, S Corp, Nonprofit 990 series)</li>
-              <li>Tax planning: reduce taxes legally and avoid surprises</li>
-            </ul>
-          </div>
-          <div class="callout">
-            <h3 class="h4">Portal-first for speed & organization</h3>
-            <p class="muted">
-              The portal is the fastest way to onboard, collect documents, and keep communication organized.
-              Please don’t email sensitive tax documents.
-            </p>
-          </div>
-        </div>
-
-        <h2>Pricing</h2>
-        <div class="pricing-grid">
-          <div class="price-card">
-            <h3>Basic Individual Return</h3>
-            <div class="price">$100<span class="small"> starting</span></div>
-            <p class="muted">Typical W‑2/1099, standard credits/deductions.</p>
-          </div>
-
-          <div class="price-card">
-            <h3>Complex Individual Return</h3>
-            <div class="price">$200<span class="small"> starting</span></div>
-            <p class="muted">Real estate, investments, Schedule C, multi-state, etc.</p>
-          </div>
-
-          <div class="price-card">
-            <h3>Business / Entity Return</h3>
-            <div class="price">$300<span class="small"> starting</span></div>
-            <p class="muted">Partnerships, S Corps, and nonprofits (990 series).</p>
-          </div>
-        </div>
-
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Start Tax Prep (Portal)</a>
-          <a class="btn btn-ghost" href="index.html#reviews">See reviews</a>
-        </div>
+  <section class="section" id="examples" style="background:#fafafa;">
+    <div class="container grid">
+      <div class="card">
+        <h2>What this can include</h2>
+        <ul>
+          <li>Individual tax returns</li>
+          <li>Complex returns with investments, real estate, or self-employment</li>
+          <li>Partnership, S corporation, and nonprofit tax filing</li>
+          <li>Tax planning to improve timing, reduce surprises, and support better decisions</li>
+        </ul>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>Tax service reviews</h2>
-        <div class="reviews-list" data-reviews data-service="Tax Preparation &amp; Planning">
-          <p class="muted">Loading reviews…</p>
-        </div>
+      <div class="card">
+        <h2>Example work</h2>
+        <p>
+          This work includes preparing returns for individuals and families, handling self-employed and Schedule C situations, working through more complex returns with additional income streams, and supporting entity-level tax work where bookkeeping quality and tax presentation matter.
+        </p>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <div class="footer"><div class="container">Watson Advisory Services • Tax Preparation &amp; Planning</div></div>
 </body>
 </html>
