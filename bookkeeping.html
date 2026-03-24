@@ -1,163 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Bookkeeping & Cleanup | Watson Advisory Services</title>
-  <meta name="description" content="Bookkeeping, cleanup, catch-up, and reconciliations from Evan Watson for small businesses and self-employed clients." />
-  <style>
-    :root {
-      --red: #ff3131;
-      --red-dark: #d62828;
-      --black: #202020;
-      --white: #ffffff;
-      --light: #fafafa;
-      --soft-red: #fff3f3;
-      --border: #e8e8e8;
-      --shadow: 0 12px 28px rgba(0,0,0,0.06);
-      --radius: 18px;
-    }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--black); background: var(--white); line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(1100px, 92%); margin: 0 auto; }
-    .topbar { background: var(--black); color: var(--white); }
-    .topbar .container { padding: 0.8rem 0; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-    .site-header { border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.96); position: sticky; top: 0; }
-    .site-header .container { padding: 1rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
-    .brand { font-weight: 700; }
-    nav { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .button { display: inline-flex; align-items: center; justify-content: center; background: var(--red); color: var(--white); padding: 0.9rem 1.2rem; border-radius: 999px; border: 2px solid var(--red); font-weight: 700; }
-    .button.secondary { background: var(--white); color: var(--black); border-color: var(--black); }
-    .hero { background: linear-gradient(180deg, #fff5f5 0%, #ffffff 100%); padding: 4rem 0 3rem; }
-    .hero h1 { font-size: clamp(2rem, 4vw, 3.8rem); margin: 0 0 0.8rem; }
-    .hero p { max-width: 62ch; color: #444; }
-    .section { padding: 3.5rem 0; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .card, .price-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem; box-shadow: var(--shadow); }
-    .tag { display: inline-block; padding: 0.35rem 0.7rem; border-radius: 999px; background: var(--soft-red); color: var(--red-dark); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.9rem; }
-    .quote-form { display: grid; gap: 0.9rem; }
-    .quote-form input, .quote-form select, .quote-form textarea { width: 100%; padding: 0.95rem 1rem; border: 1px solid #d7d7d7; border-radius: 14px; font: inherit; }
-    .quote-form textarea { min-height: 130px; resize: vertical; }
-    .muted { color: #666; }
-    .footer { background: var(--black); color: var(--white); padding: 1.8rem 0; margin-top: 2rem; }
-    @media (max-width: 900px) { .grid, .pricing { grid-template-columns: 1fr; } }
-  </style>
+  <meta name="description" content="Monthly bookkeeping and cleanup/catch-up work to get you back to clean financials and better reporting." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
-<body>
-  <div class="topbar">
-    <div class="container">
-      <div>Email: <a href="mailto:evanwatson04@gmail.com">evanwatson04@gmail.com</a></div>
-      <div>Call or text: <a href="tel:12057064910">(205) 706-4910</a></div>
-    </div>
-  </div>
 
+<body>
   <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html">Watson Advisory Services</a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#quote">Request Quote</a>
-        <a class="button" href="mailto:evanwatson04@gmail.com">Contact Evan</a>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="logo-crop" aria-hidden="true"><img src="logo.jpg" alt="" /></span>
+        <span class="brand-text">
+          <span class="brand-name">Watson Advisory Services</span>
+          <span class="brand-tag">Tax • Bookkeeping • Excel Analytics</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="tax-services.html">Tax</a>
+        <a class="active" href="bookkeeping.html">Bookkeeping</a>
+        <a href="analytics-consulting.html">Analytics</a>
+        <a href="financial-modeling.html">Modeling</a>
+        <a class="btn btn-ghost" href="index.html#quote">Request a quote</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <span class="tag">Books</span>
-      <h1>Bookkeeping &amp; Cleanup</h1>
-      <p>
-        Cleanup, catch-up, and ongoing bookkeeping support to help keep your records organized, tax-ready, and useful for decision-making.
-      </p>
-      <p>
-        <a class="button" href="mailto:evanwatson04@gmail.com">Request Bookkeeping Help</a>
-        <a class="button secondary" href="index.html">Back to Home</a>
-      </p>
-    </div>
-  </section>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Bookkeeping & Cleanup</h1>
+        <p class="lead">
+          Clean books = better decisions and easier tax filing. I help you get organized and keep it that way.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="index.html#quote">Request a quote</a>
+          <a class="btn btn-ghost" href="index.html">Back to home</a>
+        </div>
+      </div>
+    </section>
 
-  <section class="section">
-    <div class="container grid">
-      <div class="card">
-        <h2>What this can include</h2>
-        <ul>
-          <li>Bookkeeping cleanup and catch-up work</li>
-          <li>Monthly transaction categorization</li>
-          <li>Account reconciliations</li>
-          <li>Financial statement preparation support</li>
-          <li>Books review before tax filing</li>
-          <li>General ledger organization</li>
+    <section class="section">
+      <div class="container">
+        <h2>What I help with</h2>
+        <ul class="checklist">
+          <li>Cleanup / catch-up bookkeeping</li>
+          <li>Bank/credit card categorization and reconciliation</li>
+          <li>Monthly reporting basics (P&L, simple trends, consistency checks)</li>
+          <li>QuickBooks support + Excel reporting enhancements</li>
         </ul>
-      </div>
-      <div class="card">
-        <h2>Example work</h2>
-        <p class="muted">Replace this section later with real cleanup examples, screenshots, and client results.</p>
-        <ul>
-          <li>Cleanup of uncategorized transactions and accounts</li>
-          <li>Reconciliation support before tax return preparation</li>
-          <li>Catch-up bookkeeping for a small service business</li>
-          <li>Classification review to improve reporting accuracy</li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <section class="section" id="pricing" style="background: #fafafa;">
-    <div class="container">
-      <h2>Mock Pricing</h2>
-      <div class="pricing">
-        <div class="price-card">
-          <h3>Monthly Bookkeeping</h3>
-          <p><strong>Starting at $250/mo</strong></p>
-          <p>For smaller businesses with lighter transaction volume.</p>
-        </div>
-        <div class="price-card">
-          <h3>Cleanup Project</h3>
-          <p><strong>Starting at $400</strong></p>
-          <p>For catch-up work, corrections, and one-time cleanup needs.</p>
-        </div>
-        <div class="price-card">
-          <h3>Complex Cleanup</h3>
-          <p><strong>Custom Quote</strong></p>
-          <p>For higher volume books or more involved reconciliation problems.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <h2>Flat-rate pricing (starting)</h2>
+        <p class="muted">Pricing depends on transaction volume and how far behind the books are.</p>
 
-  <section class="section" id="reviews">
-    <div class="container grid">
-      <div class="card">
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3>Monthly Bookkeeping</h3>
+            <div class="price">$200<span class="small"> starting / month</span></div>
+            <p class="muted">Best for very small businesses with low transaction counts.</p>
+          </div>
+
+          <div class="price-card">
+            <h3>Monthly Bookkeeping (Standard)</h3>
+            <div class="price">$350<span class="small"> starting / month</span></div>
+            <p class="muted">For growing businesses needing consistent monthly reporting.</p>
+          </div>
+
+          <div class="price-card">
+            <h3>Cleanup / Catch-up</h3>
+            <div class="price">$300<span class="small"> starting / month behind</span></div>
+            <p class="muted">Get caught up and back to clean, reconcile-able numbers.</p>
+          </div>
+        </div>
+
         <h2>Reviews</h2>
-        <p class="muted">Placeholder review section for now.</p>
-        <p>“Helped turn messy books into something clean enough to actually use.”</p>
-        <p>“Very helpful in identifying problems and getting records organized.”</p>
+        <div class="reviews-list" data-reviews data-service="Bookkeeping &amp; Cleanup">
+          <p class="muted">Loading reviews…</p>
+        </div>
       </div>
-      <div class="card" id="quote">
-        <h2>Request a Quote</h2>
-        <form class="quote-form" action="mailto:evanwatson04@gmail.com" method="post" enctype="text/plain">
-          <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="email" placeholder="Your email" required />
-          <select name="bookkeeping_need">
-            <option value="">Type of help needed</option>
-            <option>Monthly Bookkeeping</option>
-            <option>Cleanup / Catch-Up</option>
-            <option>Reconciliations</option>
-            <option>Tax-Ready Books Review</option>
-          </select>
-          <textarea name="details" placeholder="Describe your bookkeeping situation, software, and how far behind things are"></textarea>
-          <button class="button" type="submit">Request Quote</button>
-        </form>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <div class="footer">
-    <div class="container">Watson Advisory Services • Bookkeeping &amp; Cleanup</div>
-  </div>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>

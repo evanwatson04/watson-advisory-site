@@ -1,163 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Financial Modeling & Pro Formas | Watson Advisory Services</title>
-  <meta name="description" content="Financial modeling and pro forma services from Evan Watson for planning, forecasting, and business decision support." />
-  <style>
-    :root {
-      --red: #ff3131;
-      --red-dark: #d62828;
-      --black: #202020;
-      --white: #ffffff;
-      --light: #fafafa;
-      --soft-red: #fff3f3;
-      --border: #e8e8e8;
-      --shadow: 0 12px 28px rgba(0,0,0,0.06);
-      --radius: 18px;
-    }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--black); background: var(--white); line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(1100px, 92%); margin: 0 auto; }
-    .topbar { background: var(--black); color: var(--white); }
-    .topbar .container { padding: 0.8rem 0; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-    .site-header { border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.96); position: sticky; top: 0; }
-    .site-header .container { padding: 1rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
-    .brand { font-weight: 700; }
-    nav { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .button { display: inline-flex; align-items: center; justify-content: center; background: var(--red); color: var(--white); padding: 0.9rem 1.2rem; border-radius: 999px; border: 2px solid var(--red); font-weight: 700; }
-    .button.secondary { background: var(--white); color: var(--black); border-color: var(--black); }
-    .hero { background: linear-gradient(180deg, #fff5f5 0%, #ffffff 100%); padding: 4rem 0 3rem; }
-    .hero h1 { font-size: clamp(2rem, 4vw, 3.8rem); margin: 0 0 0.8rem; }
-    .hero p { max-width: 62ch; color: #444; }
-    .section { padding: 3.5rem 0; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .card, .price-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem; box-shadow: var(--shadow); }
-    .tag { display: inline-block; padding: 0.35rem 0.7rem; border-radius: 999px; background: var(--soft-red); color: var(--red-dark); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.9rem; }
-    .quote-form { display: grid; gap: 0.9rem; }
-    .quote-form input, .quote-form select, .quote-form textarea { width: 100%; padding: 0.95rem 1rem; border: 1px solid #d7d7d7; border-radius: 14px; font: inherit; }
-    .quote-form textarea { min-height: 130px; resize: vertical; }
-    .muted { color: #666; }
-    .footer { background: var(--black); color: var(--white); padding: 1.8rem 0; margin-top: 2rem; }
-    @media (max-width: 900px) { .grid, .pricing { grid-template-columns: 1fr; } }
-  </style>
+  <meta name="description" content="Flat-rate pro formas, budgets, forecasts, and scenario models for better planning and better business decisions." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
-<body>
-  <div class="topbar">
-    <div class="container">
-      <div>Email: <a href="mailto:evanwatson04@gmail.com">evanwatson04@gmail.com</a></div>
-      <div>Call or text: <a href="tel:12057064910">(205) 706-4910</a></div>
-    </div>
-  </div>
 
+<body>
   <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html">Watson Advisory Services</a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#quote">Request Quote</a>
-        <a class="button" href="mailto:evanwatson04@gmail.com">Contact Evan</a>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="logo-crop" aria-hidden="true"><img src="logo.jpg" alt="" /></span>
+        <span class="brand-text">
+          <span class="brand-name">Watson Advisory Services</span>
+          <span class="brand-tag">Tax • Bookkeeping • Excel Analytics</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="tax-services.html">Tax</a>
+        <a href="bookkeeping.html">Bookkeeping</a>
+        <a href="analytics-consulting.html">Analytics</a>
+        <a class="active" href="financial-modeling.html">Modeling</a>
+        <a class="btn btn-ghost" href="index.html#quote">Request a quote</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <span class="tag">Modeling</span>
-      <h1>Financial Modeling &amp; Pro Formas</h1>
-      <p>
-        Custom models and forecasts to help evaluate growth plans, financing needs, pricing, cash flow, and future business scenarios.
-      </p>
-      <p>
-        <a class="button" href="mailto:evanwatson04@gmail.com">Discuss a Modeling Project</a>
-        <a class="button secondary" href="index.html">Back to Home</a>
-      </p>
-    </div>
-  </section>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Financial Modeling & Pro Formas</h1>
+        <p class="lead">
+          Flat-rate models that help you price correctly, plan cash flow, and pitch opportunities with confidence.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="index.html#quote">Request a quote</a>
+          <a class="btn btn-ghost" href="index.html">Back to home</a>
+        </div>
+      </div>
+    </section>
 
-  <section class="section">
-    <div class="container grid">
-      <div class="card">
-        <h2>What this can include</h2>
-        <ul>
-          <li>Pro forma income statements</li>
-          <li>Cash flow forecasting</li>
-          <li>Three-statement starter models</li>
-          <li>Scenario and sensitivity analysis</li>
-          <li>Startup or expansion planning models</li>
-          <li>Pricing and volume assumption analysis</li>
+    <section class="section">
+      <div class="container">
+        <h2>Typical deliverables</h2>
+        <ul class="checklist">
+          <li>Pro forma income statement and key assumptions</li>
+          <li>Budget and variance-ready templates</li>
+          <li>Scenario/sensitivity analysis (best/base/worst case)</li>
+          <li>Cash-flow visibility (where money actually goes)</li>
+          <li>Executive summary: what the model says and what to do next</li>
         </ul>
-      </div>
-      <div class="card">
-        <h2>Example work</h2>
-        <p class="muted">Replace this section later with real examples, screenshots, and deliverables.</p>
-        <ul>
-          <li>12-month cash flow forecast for a growing business</li>
-          <li>Startup pro forma for lender or investor discussions</li>
-          <li>Break-even analysis for a new service offering</li>
-          <li>Scenario model comparing conservative and growth cases</li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <section class="section" id="pricing" style="background: #fafafa;">
-    <div class="container">
-      <h2>Mock Pricing</h2>
-      <div class="pricing">
-        <div class="price-card">
-          <h3>Basic Forecast</h3>
-          <p><strong>Starting at $300</strong></p>
-          <p>Simple projections and assumptions model.</p>
-        </div>
-        <div class="price-card">
-          <h3>Detailed Pro Forma</h3>
-          <p><strong>Starting at $650</strong></p>
-          <p>More detailed forecast package for planning or presentations.</p>
-        </div>
-        <div class="price-card">
-          <h3>Custom Modeling</h3>
-          <p><strong>Starting at $125/hr</strong></p>
-          <p>For more advanced, iterative, or scenario-based model builds.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <h2>Flat-rate pricing (starting)</h2>
+        <p class="muted">Final pricing depends on number of scenarios, time horizon, and data availability.</p>
 
-  <section class="section" id="reviews">
-    <div class="container grid">
-      <div class="card">
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3>Pro Forma Pack</h3>
+            <div class="price">$350<span class="small"> starting</span></div>
+            <p class="muted">Clean pro forma + assumptions table + summary metrics.</p>
+          </div>
+
+          <div class="price-card">
+            <h3>Forecast Pack</h3>
+            <div class="price">$650<span class="small"> starting</span></div>
+            <p class="muted">Multi-period forecast + scenario analysis + decision notes.</p>
+          </div>
+
+          <div class="price-card">
+            <h3>Pitch/Opportunity Pack</h3>
+            <div class="price">$950<span class="small"> starting</span></div>
+            <p class="muted">Pitch-ready model + executive summary + clean outputs for a deck.</p>
+          </div>
+        </div>
+
         <h2>Reviews</h2>
-        <p class="muted">Placeholder review section for now.</p>
-        <p>“The forecast helped us think more clearly about timing and cash flow.”</p>
-        <p>“Well-organized model that made planning conversations much easier.”</p>
+        <div class="reviews-list" data-reviews data-service="Financial Modeling &amp; Pro Formas">
+          <p class="muted">Loading reviews…</p>
+        </div>
       </div>
-      <div class="card" id="quote">
-        <h2>Request a Quote</h2>
-        <form class="quote-form" action="mailto:evanwatson04@gmail.com" method="post" enctype="text/plain">
-          <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="email" placeholder="Your email" required />
-          <select name="model_type">
-            <option value="">Type of model needed</option>
-            <option>Cash Flow Forecast</option>
-            <option>Pro Forma Statements</option>
-            <option>Startup / Growth Model</option>
-            <option>Scenario Analysis</option>
-          </select>
-          <textarea name="details" placeholder="Describe the business, goals, and what the model needs to show"></textarea>
-          <button class="button" type="submit">Request Quote</button>
-        </form>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <div class="footer">
-    <div class="container">Watson Advisory Services • Financial Modeling &amp; Pro Formas</div>
-  </div>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>
