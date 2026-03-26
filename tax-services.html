@@ -4,129 +4,190 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Tax Preparation & Planning | Watson Advisory Services</title>
-  <meta name="description" content="Tax preparation and planning with portal-first onboarding. Individual, complex, and entity returns with flat-rate starting prices." />
-  <link rel="icon" href="logo.png" />
+  <meta name="description" content="Tax preparation and planning with simple onboarding. Start with a quick quote request or use the secure client portal for documents, questions, and e-signatures." />
+  <link rel="icon" href="logo.jpg" />
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div id="scroll-progress" aria-hidden="true"></div>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Home">
-        <span class="logo-box" aria-hidden="true"><img src="logo.png" alt="" /></span>
-        <span class="brand-text">
-          <span class="brand-name">Watson Advisory Services</span>
-          <span class="brand-sub">Tax • Bookkeeping • Analytics • Modeling</span>
+  <div class="topbar" role="banner" aria-label="Tax deadline banner">
+    <div class="container topbar__inner">
+      <div class="topbar__text">
+        <strong>Tax deadline:</strong> Most 2025 individual federal returns are due <strong>April 15, 2026</strong>.
+      </div>
+      <div class="topbar__actions">
+        <a class="btn btn--small btn--ghost" href="quote.html?service=tax">Get a tax quote</a>
+        <a class="btn btn--small btn--primary" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">File now</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="header" role="navigation" aria-label="Primary">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Watson Advisory Services home">
+        <span class="brand__logo" aria-hidden="true"><img src="logo.jpg" alt="" /></span>
+        <span class="brand__text">
+          <span class="brand__name">Watson Advisory Services</span>
+          <span class="brand__tag">Tax • Bookkeeping • Excel Reporting • Modeling</span>
         </span>
       </a>
 
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="active" href="tax-services.html">Tax</a>
-        <a href="bookkeeping.html">Bookkeeping</a>
-        <a href="analytics-consulting.html">Analytics</a>
-        <a href="financial-modeling.html">Modeling</a>
-        <a class="btn btn-primary" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal</a>
+      <nav class="nav">
+        <a class="" href="index.html">Home</a>
+        <a class="is-active" href="tax-services.html">Tax</a>
+        <a class="" href="bookkeeping.html">Bookkeeping</a>
+        <a class="" href="analytics-consulting.html">Excel & Reporting</a>
+        <a class="" href="financial-modeling.html">Modeling</a>
+        <a class="" href="quote.html">Quote</a>
       </nav>
+
+      <div class="header__cta">
+        <a class="btn btn--ghost btn--small" href="tel:+12057064910">Call/Text (205) 706-4910</a>
+        <a class="btn btn--primary btn--small" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal</a>
+      </div>
     </div>
   </header>
 
   <main id="main">
     <section class="page-hero">
-      <div class="container">
-        <h1>Tax preparation &amp; planning</h1>
-        <p class="lead">
-          Clear communication, clean workflows, and a simple start—especially for busy owners who don’t want extra tech headaches.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="quote.html?service=tax">Request Tax Prep Quote</a>
-          <a class="btn btn-ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal Login</a>
+      <div class="container page-hero__grid">
+        <div>
+          <h1 class="page-hero__title">Tax Preparation &amp; Planning</h1>
+          <p class="page-hero__lead">
+            Straightforward support for individuals and small businesses. Clear questions. Clean workflow. No confusion.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn--primary" href="quote.html?service=tax">Request a tax quote</a>
+            <a class="btn btn--ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client portal login</a>
+          </div>
+
+          <div class="page-hero__note">
+            <strong>Deadline reminder:</strong> Most 2025 individual federal returns are due April 15, 2026.
+          </div>
+        </div>
+
+        <div class="panel panel--soft">
+          <h2 class="h3">How to start</h2>
+          <ol class="list">
+            <li><strong>Quote-first (recommended):</strong> Request a quote and Evan confirms scope, pricing, and next steps.</li>
+            <li><strong>Portal option:</strong> Use the portal to upload documents, answer questions, sign forms, and view prior returns.</li>
+            <li><strong>Simple communication:</strong> Call/text is always available if you’d rather not use forms.</li>
+          </ol>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <h2 class="section-title">Tax pricing (starting)</h2>
-        <p class="muted">Choose a package to request a quote, or use the portal to get started.</p>
+        <h2 class="h2">Pricing</h2>
+        <p class="muted">Flat-rate starting prices. Final pricing depends on complexity and documents.</p>
 
-        <div class="pricing-grid">
-          <div class="price-card price-card--portal">
-            <h3>Basic Individual Return</h3>
-            <div class="price">$100 <span class="small">starting</span></div>
-            <p class="muted">Typical W-2/1099 filing.</p>
-            <div class="card-actions">
-              <a class="btn btn-primary" href="quote.html?service=tax&package=Basic%20Individual%20Return&starting=100">Request quote</a>
-              <a class="btn btn-ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Portal</a>
+        <div class="pricing">
+          <article class="price" role="button" tabindex="0" data-card-link="https://watsonadvisoryservices.mytaxportal.online/">
+            <h3 class="h3">Basic Individual Return</h3>
+            <div class="price__num">$100 <span class="price__small">starting</span></div>
+            <p class="muted">Typical W-2/1099 filing with common credits/deductions.</p>
+            <div class="includes">
+              <span>Organized intake</span>
+              <span>Clear question list</span>
+              <span>Review-ready draft</span>
             </div>
-          </div>
-
-          <div class="price-card price-card--portal">
-            <h3>Complex Individual Return</h3>
-            <div class="price">$200 <span class="small">starting</span></div>
-            <p class="muted">Real estate, investments, Schedule C, and more.</p>
-            <div class="card-actions">
-              <a class="btn btn-primary" href="quote.html?service=tax&package=Complex%20Individual%20Return&starting=200">Request quote</a>
-              <a class="btn btn-ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Portal</a>
+            <div class="price__actions">
+              <a class="btn btn--ghost btn--small" href="quote.html?service=tax&package=Basic%20Individual%20Return&starting=100">Request quote</a>
+              <a class="btn btn--primary btn--small" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Portal</a>
             </div>
-          </div>
+          </article>
 
-          <div class="price-card price-card--portal">
-            <h3>Business / Entity Return</h3>
-            <div class="price">$300 <span class="small">starting</span></div>
-            <p class="muted">Partnerships, S Corps, and nonprofits.</p>
-            <div class="card-actions">
-              <a class="btn btn-primary" href="quote.html?service=tax&package=Business%20%2F%20Entity%20Return&starting=300">Request quote</a>
-              <a class="btn btn-ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Portal</a>
+          <article class="price" role="button" tabindex="0" data-card-link="https://watsonadvisoryservices.mytaxportal.online/">
+            <h3 class="h3">Complex Individual Return</h3>
+            <div class="price__num">$200 <span class="price__small">starting</span></div>
+            <p class="muted">Real estate, investments, Schedule C, multi-state, and more.</p>
+            <div class="includes">
+              <span>Complex forms</span>
+              <span>Cleanup guidance</span>
+              <span>Planning notes</span>
             </div>
-          </div>
-        </div>
+            <div class="price__actions">
+              <a class="btn btn--ghost btn--small" href="quote.html?service=tax&package=Complex%20Individual%20Return&starting=200">Request quote</a>
+              <a class="btn btn--primary btn--small" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Portal</a>
+            </div>
+          </article>
 
-        <div class="two-col top-gap">
-          <div>
-            <h2 class="section-title">What’s included</h2>
-            <ul class="checklist">
-              <li>Clear intake and document collection workflow</li>
-              <li>Follow-up questions organized and easy to answer</li>
-              <li>Return preparation and review-ready draft</li>
-              <li>Planning support (where applicable) to legally minimize liabilities</li>
-            </ul>
-          </div>
-          <div class="callout">
-            <h3 class="h4">Client portal</h3>
-            <p class="muted">
-              New clients can start with a quote request (recommended). If you prefer, the portal is also available to onboard. Current and returning clients can use the portal to upload documents, answer questions, review returns, and sign forms.
-            </p>
-            <a class="btn btn-primary" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal Login</a>
-          </div>
+          <article class="price" role="button" tabindex="0" data-card-link="https://watsonadvisoryservices.mytaxportal.online/">
+            <h3 class="h3">Business / Entity Return</h3>
+            <div class="price__num">$300 <span class="price__small">starting</span></div>
+            <p class="muted">Partnerships, S Corps, and nonprofits (scope-dependent).</p>
+            <div class="includes">
+              <span>Entity filing</span>
+              <span>Owner communication</span>
+              <span>Cleaner inputs</span>
+            </div>
+            <div class="price__actions">
+              <a class="btn btn--ghost btn--small" href="quote.html?service=tax&package=Business%20%2F%20Entity%20Return&starting=300">Request quote</a>
+              <a class="btn btn--primary btn--small" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Portal</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
+
+    <section class="section section--tint">
+      <div class="container">
+        <h2 class="h2">Recent work examples</h2>
+        <p class="muted">Descriptions are general to respect client confidentiality.</p>
+
+        <div class="cards2">
+          <div class="card2">
+            <p><strong>Multi-year filing support:</strong> Organized documents and prepared multi-year returns with structured follow-up questions.</p>
+          </div>
+          <div class="card2">
+            <p><strong>Self-employed filing structure:</strong> Helped 1099/Schedule C clients build cleaner documentation and expense categories.</p>
+          </div>
+          <div class="card2">
+            <p><strong>Entity-ready inputs:</strong> Coordinated with bookkeeping cleanup so business filings were built on accurate numbers.</p>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn--primary" href="quote.html?service=tax">Request a tax quote</a>
+          <a class="btn btn--ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client portal login</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__col">
+          <div class="footer__brand">Watson Advisory Services</div>
+          <div class="footer__muted">Sole proprietor: Evan Watson</div>
+          <div class="footer__muted">Central Alabama & Central Mississippi focus • Serving clients anywhere</div>
+          <div class="footer__muted">Giving back: 10% of income supports charitable causes</div>
+        </div>
+
+        <div class="footer__col">
+          <div class="footer__title">Contact</div>
+          <a class="footer__link" href="tel:+12057064910">(205) 706-4910</a>
+          <a class="footer__link" href="mailto:evanwatson04@gmail.com">evanwatson04@gmail.com</a>
+          <a class="footer__link" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client portal login</a>
+        </div>
+
+        <div class="footer__col">
+          <div class="footer__title">Links</div>
+          <a class="footer__link" href="https://www.linkedin.com/in/evan-watson-93175932b" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="footer__link" href="https://www.facebook.com/share/181qwibuGE/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook (business page)</a>
+          <a class="footer__link" href="data-security-plan.pdf" target="_blank" rel="noopener">Data security plan (PDF)</a>
+        </div>
+      </div>
+
+      <div class="container footer__bottom">
+        <span>© <span id="year"></span> Watson Advisory Services. All rights reserved.</span>
+        <span class="footer__muted">Information on this site is general and not legal advice.</span>
+      </div>
+    </footer>
   </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <div class="footer-brand">Watson Advisory Services</div>
-        <div class="footer-muted">Email: evanwatson04@gmail.com • Phone: (205) 706-4910</div>
-      </div>
-      <div class="footer-links">
-        <a href="quote.html?service=tax">Quote</a>
-        <a href="index.html">Home</a>
-        <a href="bookkeeping.html">Bookkeeping</a>
-        <a href="analytics-consulting.html">Analytics</a>
-        <a href="financial-modeling.html">Modeling</a>
-      </div>
-    </div>
-  </footer>
-
-  <div class="mobile-bar" aria-label="Quick actions">
-    <a href="tel:+12057064910">Call</a>
-    <a href="quote.html?service=tax">Quote</a>
-    <a href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Portal</a>
-  </div>
 </body>
 </html>
