@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Request a Quote | Watson Advisory Services</title>
-  <meta name="description" content="Request a quote for bookkeeping, analytics, financial modeling, or tax planning. Tax return prep starts in the client portal." />
+  <meta name="description" content="Request a quote for bookkeeping, analytics, financial modeling, or tax planning. Tax return prep can start with a quote request or the client portal." />
 
   <link rel="icon" href="logo.png" />
   <link rel="stylesheet" href="styles.css" />
@@ -43,14 +43,22 @@
       <div class="container">
         <h1>Request a quote</h1>
         <p class="lead">
-          Submit the form below and you’ll receive a response by email or text. For full tax preparation, start in the client portal.
+          Submit the form below and you’ll receive a response by email or text. If spreadsheets or online tools aren’t your thing, that’s okay—Evan will keep the process simple. For tax preparation, you can request a quote first or start in the client portal.
         </p>
 
         <div class="cta-row">
-          <a class="btn btn-ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Start Tax Prep in Portal</a>
+          <a class="btn btn-ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal Login</a>
           <a class="btn btn-ghost" href="index.html#contact">Other contact options</a>
         </div>
 
+        
+        <div class="notice">
+          <strong>Current / returning clients:</strong> Use the client portal to view returns, answer questions, upload documents, and sign forms.
+          <div class="cta-row" style="margin-top:10px;">
+            <a class="btn btn-ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal Login</a>
+          </div>
+        </div>
+        
         <div class="notice" id="quoteSentNotice" hidden>
           Request received. If you don’t hear back shortly, call/text (205) 706-4910.
         </div>
@@ -91,7 +99,7 @@
 
           <label>
             Package (optional)
-            <input name="package" id="packageInput" maxlength="120" placeholder="Example: KPI Dashboard Pack" />
+            <input name="package" id="packageInput" maxlength="120" placeholder="Example: Reporting Cleanup Pack" />
           </label>
 
           <label>
@@ -109,7 +117,7 @@
           <button class="btn btn-primary btn-lg" type="submit">Send request</button>
 
           <p class="fineprint">
-            For tax return preparation, the client portal is the fastest onboarding path for document upload and communication.
+            For tax return preparation, you can start with this request or use the client portal for onboarding and document upload.
           </p>
         </form>
       </div>
