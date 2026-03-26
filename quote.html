@@ -3,73 +3,78 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
   <title>Request a Quote | Watson Advisory Services</title>
-  <meta name="description" content="Request a quote for bookkeeping, analytics, financial modeling, or tax planning. Tax return prep can start with a quote request or the client portal." />
-
-  <link rel="icon" href="logo.png" />
+  <meta name="description" content="Request a quote for bookkeeping, Excel reporting, financial modeling, or tax preparation support." />
+  <link rel="icon" href="logo.jpg" />
   <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
 </head>
-
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div id="scroll-progress" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <div class="container header-inner">
+  <a class="skip" href="#main">Skip to content</a>
+  
+  <div class="topbar" role="banner" aria-label="Tax deadline banner">
+    <div class="container topbar__inner">
+      <div class="topbar__text"><strong>Tax deadline:</strong> Most 2025 individual federal returns are due <strong>April 15, 2026</strong>.</div>
+      <div class="topbar__actions">
+        <a class="btn btn--small btn--ghost" href="quote.html?service=tax">Get a tax quote</a>
+        <a class="btn btn--small btn--primary" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">File now with Watson Advisory Services</a>
+      </div>
+    </div>
+  </div>
+  <header class="header" role="navigation" aria-label="Primary">
+    <div class="container header__inner">
       <a class="brand" href="index.html" aria-label="Watson Advisory Services home">
-        <span class="logo-box" aria-hidden="true">
-          <img src="logo.png" alt="" />
-        </span>
-        <span class="brand-text">
-          <span class="brand-name">Watson Advisory Services</span>
-          <span class="brand-sub">Tax • Bookkeeping • Analytics • Modeling</span>
+        <span class="brand__logo" aria-hidden="true"><img src="logo.jpg" alt="" /></span>
+        <span class="brand__text">
+          <span class="brand__name">Watson Advisory Services</span>
+          <span class="brand__tag">Tax • Bookkeeping • Excel Reporting • Modeling</span>
         </span>
       </a>
-
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="tax-services.html">Tax</a>
-        <a href="bookkeeping.html">Bookkeeping</a>
-        <a href="analytics-consulting.html">Analytics</a>
-        <a href="financial-modeling.html">Modeling</a>
-        <a class="btn btn-primary" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal</a>
+      <nav class="nav">
+        <a class="" href="index.html">Home</a>
+        <a class="" href="tax-services.html">Tax</a>
+        <a class="" href="bookkeeping.html">Bookkeeping</a>
+        <a class="" href="analytics-consulting.html">Excel & Reporting</a>
+        <a class="" href="financial-modeling.html">Modeling</a>
+        <a class="is-active" href="quote.html">Quote</a>
       </nav>
+      <div class="header__cta">
+        <a class="btn btn--ghost btn--small" href="tel:+12057064910">Call/Text (205) 706-4910</a>
+        <a class="btn btn--primary btn--small" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal</a>
+      </div>
     </div>
   </header>
-
   <main id="main">
+
     <section class="page-hero">
-      <div class="container">
-        <h1>Request a quote</h1>
-        <p class="lead">
-          Submit the form below and you’ll receive a response by email or text. If spreadsheets or online tools aren’t your thing, that’s okay—Evan will keep the process simple. For tax preparation, you can request a quote first or start in the client portal.
-        </p>
-
-        <div class="cta-row">
-          <a class="btn btn-ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal Login</a>
-          <a class="btn btn-ghost" href="index.html#contact">Other contact options</a>
-        </div>
-
-        
-        <div class="notice">
-          <strong>Current / returning clients:</strong> Use the client portal to view returns, answer questions, upload documents, and sign forms.
-          <div class="cta-row" style="margin-top:10px;">
-            <a class="btn btn-ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal Login</a>
+      <div class="container page-hero__grid">
+        <div>
+          <h1 class="page-hero__title">Request a quote</h1>
+          <p class="page-hero__lead">
+            Tell Evan what you need help with and you will get a response by email or text. If online tools are not your thing,
+            that is okay - this process is meant to stay simple.
+          </p>
+          <div class="cta-row" style="margin-top:16px">
+            <a class="btn btn--ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client portal login</a>
+            <a class="btn btn--ghost" href="index.html#contact">Other contact options</a>
+          </div>
+          <div class="notice" id="quoteSentNotice" hidden>
+            Request received. If you do not hear back shortly, call or text (205) 706-4910.
           </div>
         </div>
-        
-        <div class="notice" id="quoteSentNotice" hidden>
-          Request received. If you don’t hear back shortly, call/text (205) 706-4910.
+        <div class="panel panel--soft">
+          <h2 class="h3">Tax clients</h2>
+          <p class="muted">
+            For tax preparation, a quote-first path is available if you would rather not enter sensitive information right away.
+            The portal is also available for clients who want to onboard there immediately, and for current/previous clients to
+            upload documents, answer questions, review returns, and sign forms.
+          </p>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <form class="form form-card" id="quoteForm"
-              action="https://formsubmit.co/evanwatson04@gmail.com"
-              method="POST">
+        <form class="form form-card" id="quoteForm" action="https://formsubmit.co/evanwatson04@gmail.com" method="POST">
           <div class="form-row">
             <label>
               Name
@@ -91,7 +96,7 @@
               <select name="service" id="serviceSelect" required>
                 <option value="tax">Tax Preparation & Planning</option>
                 <option value="bookkeeping">Bookkeeping & Cleanup</option>
-                <option value="analytics">Data Analytics & Consulting</option>
+                <option value="analytics">Excel Reporting, Data Analytics & Consulting</option>
                 <option value="modeling">Financial Modeling & Pro Formas</option>
               </select>
             </label>
@@ -99,22 +104,20 @@
 
           <label>
             Package (optional)
-            <input name="package" id="packageInput" maxlength="120" placeholder="Example: Reporting Cleanup Pack" />
+            <input name="package" id="packageInput" maxlength="120" placeholder="Example: Excel Reporting Pack" />
           </label>
 
           <label>
             What do you need help with?
-            <textarea name="message" id="messageInput" rows="7" required maxlength="1400"
-                      placeholder="Briefly describe what you’re working on, what you want the deliverable to be, and any deadlines."></textarea>
+            <textarea name="message" id="messageInput" rows="7" required maxlength="1400" placeholder="Briefly describe what you are working on, what you want the deliverable to be, and any deadlines."></textarea>
           </label>
 
-          <!-- FormSubmit configuration -->
           <input type="hidden" name="_subject" id="subjectInput" value="New quote request - Watson Advisory Services" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_honey" value="" />
           <input type="hidden" name="_next" id="nextInput" value="" />
 
-          <button class="btn btn-primary btn-lg" type="submit">Send request</button>
+          <button class="btn btn--primary btn--large" type="submit">Send request</button>
 
           <p class="fineprint">
             For tax return preparation, you can start with this request or use the client portal for onboarding and document upload.
@@ -122,28 +125,65 @@
         </form>
       </div>
     </section>
+
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <div class="footer-brand">Watson Advisory Services</div>
-        <div class="footer-muted">Email: evanwatson04@gmail.com • Phone: (205) 706-4910</div>
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__col">
+          <div class="footer__brand">Watson Advisory Services</div>
+          <div class="footer__muted">Sole proprietor: Evan Watson</div>
+          <div class="footer__muted">Central Alabama & Central Mississippi focus - serving clients anywhere</div>
+          <div class="footer__muted">Giving back: 10% of income supports charitable causes</div>
+        </div>
+        <div class="footer__col">
+          <div class="footer__title">Contact</div>
+          <a class="footer__link" href="tel:+12057064910">(205) 706-4910</a>
+          <a class="footer__link" href="mailto:evanwatson04@gmail.com">evanwatson04@gmail.com</a>
+          <a class="footer__link" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client portal login</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__title">Links</div>
+          <a class="footer__link" href="https://www.linkedin.com/in/evan-watson-93175932b" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="footer__link" href="https://www.facebook.com/share/181qwibuGE/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook (business page)</a>
+          <a class="footer__link" href="data-security-plan.html">Data security plan</a>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="tax-services.html">Tax</a>
-        <a href="bookkeeping.html">Bookkeeping</a>
-        <a href="analytics-consulting.html">Analytics</a>
-        <a href="financial-modeling.html">Modeling</a>
+      <div class="container footer__bottom">
+        <span>&copy; <span id="year"></span> Watson Advisory Services. All rights reserved.</span>
+        <span class="footer__muted">Information on this site is general and not legal advice.</span>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <div class="mobile-bar" aria-label="Quick actions">
-    <a href="tel:+12057064910">Call</a>
-    <a href="index.html">Home</a>
-    <a href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Portal</a>
-  </div>
+    <div class="mobile-bar" aria-label="Quick actions">
+      <a href="tel:+12057064910">Call</a>
+      <a href="quote.html">Quote</a>
+      <a href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Portal</a>
+    </div>
+
+    <div class="chatbot" id="chatbot" aria-label="Website help chat">
+      <div class="chatbot__window">
+        <div class="chatbot__header">
+          Watson Advisory Services Help
+          <div class="chatbot__sub">Quick answers about services, pricing, quotes, and the portal</div>
+        </div>
+        <div class="chatbot__messages">
+          <div class="chatbot__msg chatbot__msg--bot">Hi - I can help with starting tax prep, the client portal, bookkeeping, Excel reporting, modeling, pricing, and how to request a quote.</div>
+        </div>
+        <div class="chatbot__quick">
+          <button type="button" data-chat-question="How do I start tax prep?">Start tax prep</button>
+          <button type="button" data-chat-question="What is the portal for?">Portal help</button>
+          <button type="button" data-chat-question="What do you do with Excel reporting?">Excel reporting</button>
+        </div>
+        <div class="chatbot__footer">
+          <input class="chatbot__input" type="text" placeholder="Ask a quick question..." />
+          <button type="button" class="btn btn--primary btn--small chatbot__send">Send</button>
+        </div>
+      </div>
+      <button type="button" class="chatbot__toggle" aria-expanded="false" aria-label="Open help chat">?</button>
+    </div>
+
+    <script defer src="script.js"></script>
+
 </body>
 </html>
