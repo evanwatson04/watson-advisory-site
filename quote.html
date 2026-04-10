@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Request a Quote | Watson Advisory Services</title>
+  <meta name="description" content="Request a quote for tax preparation, bookkeeping, Excel reporting, financial modeling, or any other project. No sensitive info needed upfront."/>
+  <link rel="icon" href="logo.jpg"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="deadline-bar">
+  <strong>April 15 deadline approaching</strong> — 2025 federal returns are due soon.
+  <a href="quote.html?service=tax">Get a tax quote &rarr;</a>
+</div>
+
+<header class="header">
+  <div class="container header__inner">
+    <a class="brand" href="index.html" aria-label="Watson Advisory Services home">
+      <span class="brand__logo"><img src="logo.jpg" alt=""/></span>
+      <span>
+        <div class="brand__name">Watson Advisory Services</div>
+        <div class="brand__tag">Tax &middot; Bookkeeping &middot; Excel &middot; Modeling</div>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="tax-services.html">Tax</a>
+      <a href="bookkeeping.html">Bookkeeping</a>
+      <a href="analytics-consulting.html">Excel &amp; Projects</a>
+      <a href="financial-modeling.html">Modeling</a>
+      <a class="is-active" href="quote.html">Quote</a>
+    </nav>
+    <div class="header__cta">
+      <a class="btn btn--ghost btn--sm" href="tel:+12057064910">(205) 706-4910</a>
+      <a class="btn btn--primary btn--sm" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="container page-hero__grid">
+    <div>
+      <div class="page-hero__eyebrow">Request a Quote</div>
+      <h1 class="page-hero__title">No commitment. No sensitive info required.</h1>
+      <p class="page-hero__lead">Describe what you need and Evan will respond by email or text with a confirmed flat price before any work starts. If you'd rather just talk, call or text directly.</p>
+      <div class="btn-row">
+        <a class="btn btn--ghost" href="tel:+12057064910">Call or Text (205) 706-4910</a>
+        <a class="btn btn--ghost" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client Portal Login</a>
+      </div>
+    </div>
+    <div class="panel panel--soft">
+      <div class="panel__title">Tax clients</div>
+      <p class="panel__text" style="margin-bottom:12px">For tax prep, starting with a quote request avoids sharing sensitive info right away. Once scope and pricing are confirmed, the secure client portal is used for documents, questions, and e-signatures.</p>
+      <p class="panel__text">If you're a returning client or ready to go, you can also start directly in the portal.</p>
+      <div class="btn-row" style="margin-top:14px">
+        <a class="btn btn--primary btn--sm" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Open Portal</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container form-wrap">
+    <div>
+      <div class="sec-eyebrow">Quote request</div>
+      <h2 class="sec-title" style="margin-bottom:24px">Tell Evan what you need</h2>
+      <form class="form" id="quoteForm" action="https://formsubmit.co/evanwatson04@gmail.com" method="POST">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" required maxlength="60" autocomplete="name"/>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required maxlength="80" autocomplete="email"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" maxlength="20" autocomplete="tel"/>
+          </div>
+          <div class="field">
+            <label for="service">Service</label>
+            <select id="service" name="service" required>
+              <option value="tax">Tax Preparation &amp; Planning</option>
+              <option value="bookkeeping">Bookkeeping &amp; Cleanup</option>
+              <option value="analytics">Excel Reporting, Analytics &amp; Special Projects</option>
+              <option value="modeling">Financial Modeling &amp; Pro Formas</option>
+              <option value="subscription">Subscription / Ongoing Plan</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="package">Package or Project (optional)</label>
+          <input id="package" name="package" maxlength="120" placeholder="e.g. Monthly bookkeeping, Forecast Pack, Trading backtest..."/>
+        </div>
+        <div class="field">
+          <label for="message">What do you need help with?</label>
+          <textarea id="message" name="message" rows="7" required maxlength="1600" placeholder="Describe what you're working on, what you'd like the deliverable to be, and any timing or deadlines. The more context, the better — but even a rough description is fine."></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="New quote request — Watson Advisory Services"/>
+        <input type="hidden" name="_template" value="table"/>
+        <input type="hidden" name="_honey" value=""/>
+        <button class="btn btn--primary btn--lg" type="submit">Send Request</button>
+        <p class="fineprint">Evan typically responds same day or next business day. No sensitive documents or financial data needed in this form — that all goes through the secure portal after scope is agreed.</p>
+      </form>
+      <div class="notice" id="quoteSentNotice" style="display:none;margin-top:14px">
+        Request received. If you don't hear back within 24 hours, call or text (205) 706-4910.
+      </div>
+    </div>
+    <div>
+      <div class="panel" style="margin-bottom:16px">
+        <div class="panel__title">What happens next</div>
+        <div class="steps" style="margin-top:14px">
+          <div class="step">
+            <div class="step__num">1</div>
+            <div>
+              <div class="step__title">Evan reviews your request</div>
+              <div class="step__text">Usually same day. He may follow up with a quick clarifying question.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__num">2</div>
+            <div>
+              <div class="step__title">Flat price confirmed</div>
+              <div class="step__text">You'll receive a specific price before any work begins. No surprises.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__num">3</div>
+            <div>
+              <div class="step__title">Work begins on your timeline</div>
+              <div class="step__text">Once price is agreed, Evan gets started. For tax clients, the portal handles document exchange.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-stack" style="padding:22px;background:var(--tint);border-radius:var(--r-lg);border:1px solid var(--line)">
+        <div>
+          <div class="cinfo__label">Prefer to talk first?</div>
+          <div class="cinfo__value"><a href="tel:+12057064910">(205) 706-4910</a></div>
+        </div>
+        <div>
+          <div class="cinfo__label">Email directly</div>
+          <div class="cinfo__value"><a href="mailto:evanwatson04@gmail.com">evanwatson04@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">Watson Advisory Services</div>
+        <p class="footer__tagline">Tax preparation, bookkeeping, Excel reporting, and financial modeling &mdash; all delivered directly by Evan Watson.</p>
+        <div class="footer__charity">10% of income supports charitable causes.</div>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <a class="footer__link" href="tel:+12057064910">(205) 706-4910</a>
+        <a class="footer__link" href="mailto:evanwatson04@gmail.com">evanwatson04@gmail.com</a>
+        <a class="footer__link" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client portal</a>
+      </div>
+      <div>
+        <div class="footer__col-title">Pages</div>
+        <a class="footer__link" href="tax-services.html">Tax Services</a>
+        <a class="footer__link" href="bookkeeping.html">Bookkeeping</a>
+        <a class="footer__link" href="analytics-consulting.html">Excel &amp; Projects</a>
+        <a class="footer__link" href="financial-modeling.html">Modeling</a>
+        <a class="footer__link" href="quote.html">Request a Quote</a>
+        <a class="footer__link" href="data-security-plan.html">Data Security</a>
+        <a class="footer__link" href="https://www.linkedin.com/in/evan-watson-93175932b" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span id="year"></span> Watson Advisory Services. All rights reserved.</span>
+      <span>Information on this site is general &mdash; not legal or financial advice.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a href="tel:+12057064910">Call</a>
+  <a href="quote.html">Quote</a>
+  <a href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Portal</a>
+</div>
+
+<div class="chatbot" id="chatbot">
+  <div class="chatbot__window">
+    <div class="chatbot__header">Watson Advisory Services<div class="chatbot__sub">Ask about services, pricing, or how to get started</div></div>
+    <div class="chatbot__messages">
+      <div class="chatbot__msg chatbot__msg--bot">Hi &mdash; I can answer questions about tax prep, bookkeeping, Excel reporting, special projects, subscriptions, and pricing.</div>
+    </div>
+    <div class="chatbot__quick">
+      <button type="button" data-chat-question="How do I start tax prep?">Start tax prep</button>
+      <button type="button" data-chat-question="What subscription plans do you offer?">Subscriptions</button>
+      <button type="button" data-chat-question="What special projects do you do?">Special projects</button>
+    </div>
+    <div class="chatbot__footer">
+      <input class="chatbot__input" type="text" placeholder="Ask a question..."/>
+      <button type="button" class="btn btn--primary btn--sm chatbot__send">Send</button>
+    </div>
+  </div>
+  <button type="button" class="chatbot__toggle" aria-expanded="false" aria-label="Open help chat">?</button>
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const cbot = document.getElementById('chatbot');
+const win = cbot.querySelector('.chatbot__window');
+const tog = cbot.querySelector('.chatbot__toggle');
+tog.addEventListener('click', () => { const open = win.classList.toggle('is-open'); tog.setAttribute('aria-expanded', open); });
+const R = {'How do I start tax prep?':'Start with a quick quote at quote.html — no sensitive info needed upfront. Or jump straight into the secure portal.','What subscription plans do you offer?':'Three options: Tax & Check-In (~$75/mo), Books + Tax (~$350/mo), and Full Advisory (custom). All pricing confirmed after a brief consult.','What special projects do you do?':'Trading backtests, personal finance spreadsheets, custom dashboards, data cleanup, and other one-off analytical work.'};
+cbot.querySelectorAll('[data-chat-question]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const msgs = cbot.querySelector('.chatbot__messages');
+    const q = btn.dataset.chatQuestion;
+    msgs.innerHTML += '<div class="chatbot__msg chatbot__msg--user">'+q+'</div>';
+    setTimeout(() => { msgs.innerHTML += '<div class="chatbot__msg chatbot__msg--bot">'+(R[q]||'Call or text (205) 706-4910 for details.')+'</div>'; msgs.scrollTop=msgs.scrollHeight; }, 400);
+  });
+});
+cbot.querySelector('.chatbot__send').addEventListener('click', () => {
+  const inp = cbot.querySelector('.chatbot__input'); const v = inp.value.trim(); if(!v) return;
+  const msgs = cbot.querySelector('.chatbot__messages');
+  msgs.innerHTML += '<div class="chatbot__msg chatbot__msg--user">'+v+'</div>'; inp.value='';
+  setTimeout(() => { msgs.innerHTML += '<div class="chatbot__msg chatbot__msg--bot">For the best answer, call or text Evan at (205) 706-4910 or <a href=\"quote.html\" style=\"color:var(--brand);font-weight:700\">submit a quote request</a>.</div>'; msgs.scrollTop=msgs.scrollHeight; }, 400);
+});
+</script>
+</body>
+</html>
