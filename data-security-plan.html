@@ -12,8 +12,8 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="deadline-bar">
-  <strong>April 15 deadline approaching</strong> — 2025 federal returns are due soon.
-  <a href="quote.html?service=tax">Get a tax quote &rarr;</a>
+  <strong>Tax deadline:</strong> 2025 federal returns due <strong>April 15, 2026</strong> &mdash;
+  <a href="quote.html?service=tax">request a quote</a> or <a href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">file now</a>
 </div>
 
 <header class="header">
@@ -29,8 +29,10 @@
       <a class="is-active" href="index.html">Home</a>
       <a href="tax-services.html">Tax</a>
       <a href="bookkeeping.html">Bookkeeping</a>
-      <a href="analytics-consulting.html">Excel &amp; Projects</a>
+      <a href="analytics-consulting.html">Excel &amp; Reporting</a>
+      <a href="special-projects.html">Special Projects</a>
       <a href="financial-modeling.html">Modeling</a>
+      <a href="subscriptions.html">Plans</a>
       <a href="quote.html">Quote</a>
     </nav>
     <div class="header__cta">
@@ -88,7 +90,7 @@
     <div class="footer__inner">
       <div>
         <div class="footer__brand">Watson Advisory Services</div>
-        <p class="footer__tagline">Tax preparation, bookkeeping, Excel reporting, and financial modeling &mdash; all delivered directly by Evan Watson.</p>
+        <p class="footer__tagline">Tax preparation, bookkeeping, Excel reporting, and financial modeling &mdash; delivered directly by Evan Watson.</p>
         <div class="footer__charity">10% of income supports charitable causes.</div>
       </div>
       <div>
@@ -98,14 +100,21 @@
         <a class="footer__link" href="https://watsonadvisoryservices.mytaxportal.online/" target="_blank" rel="noopener">Client portal</a>
       </div>
       <div>
-        <div class="footer__col-title">Pages</div>
+        <div class="footer__col-title">Services</div>
         <a class="footer__link" href="tax-services.html">Tax Services</a>
         <a class="footer__link" href="bookkeeping.html">Bookkeeping</a>
-        <a class="footer__link" href="analytics-consulting.html">Excel &amp; Projects</a>
+        <a class="footer__link" href="analytics-consulting.html">Excel &amp; Reporting</a>
+        <a class="footer__link" href="special-projects.html">Special Projects</a>
         <a class="footer__link" href="financial-modeling.html">Modeling</a>
+        <a class="footer__link" href="subscriptions.html">Subscription Plans</a>
+      </div>
+      <div>
+        <div class="footer__col-title">More</div>
         <a class="footer__link" href="quote.html">Request a Quote</a>
         <a class="footer__link" href="data-security-plan.html">Data Security</a>
         <a class="footer__link" href="https://www.linkedin.com/in/evan-watson-93175932b" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="footer__link" href="https://www.facebook.com/share/181qwibuGE/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+        <a class="footer__link" href="https://share.google/7ak7LUmNi6xlFwGhq" target="_blank" rel="noopener">Google Reviews</a>
       </div>
     </div>
     <div class="footer__bottom">
@@ -125,7 +134,7 @@
   <div class="chatbot__window">
     <div class="chatbot__header">Watson Advisory Services<div class="chatbot__sub">Ask about services, pricing, or how to get started</div></div>
     <div class="chatbot__messages">
-      <div class="chatbot__msg chatbot__msg--bot">Hi &mdash; I can answer questions about tax prep, bookkeeping, Excel reporting, special projects, subscriptions, and pricing.</div>
+      <div class="chatbot__msg chatbot__msg--bot">Hi &mdash; I can answer questions about tax prep, bookkeeping, Excel reporting, special projects, subscription plans, and pricing.</div>
     </div>
     <div class="chatbot__quick">
       <button type="button" data-chat-question="How do I start tax prep?">Start tax prep</button>
@@ -146,7 +155,11 @@ const cbot = document.getElementById('chatbot');
 const win = cbot.querySelector('.chatbot__window');
 const tog = cbot.querySelector('.chatbot__toggle');
 tog.addEventListener('click', () => { const open = win.classList.toggle('is-open'); tog.setAttribute('aria-expanded', open); });
-const R = {'How do I start tax prep?':'Start with a quick quote at quote.html — no sensitive info needed upfront. Or jump straight into the secure portal.','What subscription plans do you offer?':'Three options: Tax & Check-In (~$75/mo), Books + Tax (~$350/mo), and Full Advisory (custom). All pricing confirmed after a brief consult.','What special projects do you do?':'Trading backtests, personal finance spreadsheets, custom dashboards, data cleanup, and other one-off analytical work.'};
+const R = {
+  'How do I start tax prep?': 'Start with a quick quote at quote.html — no sensitive info needed upfront. Or use the secure portal directly at watsonadvisoryservices.mytaxportal.online.',
+  'What subscription plans do you offer?': 'Three plans: Essentials (~$35/mo, tax filing + check-ins), Books + Tax (~$350/mo, bookkeeping + tax), and Full Advisory (custom, everything). See the Plans page for full details.',
+  'What special projects do you do?': 'Trading strategy backtesting, personal finance tracking spreadsheets, custom dashboards, data cleanup, and other one-off analytical work. See the Special Projects page.'
+};
 cbot.querySelectorAll('[data-chat-question]').forEach(btn => {
   btn.addEventListener('click', () => {
     const msgs = cbot.querySelector('.chatbot__messages');
