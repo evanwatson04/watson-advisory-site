@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://watsonadvisoryservices.net/sitemap.xml
